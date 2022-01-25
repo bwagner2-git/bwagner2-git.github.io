@@ -10,9 +10,9 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 5px 16px;
+  padding: 10px 8px;
   text-decoration: none;
-  font-size: 17px;
+  font-size: 15px;
 }
 
 /* Change the color of links on hover */
