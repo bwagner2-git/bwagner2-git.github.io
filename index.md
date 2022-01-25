@@ -23,7 +23,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #FD2D5;
+  background-color: #1FD2D5;
   color: white;
 }
 </style>
@@ -48,9 +48,9 @@
 </div>
 ## About Me
 <img src="https://raw.githubusercontent.com/bwagner2-git/ECE5960/main/headshot.jpeg" height="200" ALIGN="left" style="padding-right:20px"/>
-Greetings! My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT. 
+My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT. The corresponding GitHub Repo can be found <a href="https://github.com/bwagner2-git/ECE5960"> here </a>. I hope you enjoy!
 
-submit change color back to 04AA6D maybe and add to all other pages
+submit change color back to  maybe and add to all other pages
 
 
 
