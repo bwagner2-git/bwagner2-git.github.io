@@ -1,6 +1,6 @@
 <!-- # ECE 5960 -->
 <html>
- hello
+ {% include navigation.html}
  </html>
  <br>
 ## About Me
