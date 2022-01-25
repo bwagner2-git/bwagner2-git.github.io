@@ -1,7 +1,7 @@
 <!-- # ECE 5960 -->
 <div class="topnav">
-  <a class="active" href="#home">Home</a>
-  <a href="#news">News</a>
+  <a class="active" href="/">Home</a>
+  <a href="/lab1">lab 1</a>
   <a href="#contact">Contact</a>
   <a href="#about">About</a>
 </div>
