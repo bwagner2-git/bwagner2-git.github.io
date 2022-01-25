@@ -2,7 +2,6 @@
 <style>
 .topnav {
   background-color: #333;
-<!--   background-color: #111; -->
   overflow: hidden;
 }
 
@@ -10,7 +9,6 @@
 .topnav a {
   float: left;
   color: #f2f2f2;
-<!--   color: #1FD2D5; -->
   text-align: center;
   padding: 10px 7px;
   text-decoration: none;
@@ -25,11 +23,11 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #04AA6D;
-<!--   background-color: #1FD2D5; -->
+  background-color: #FD2D5;
   color: white;
 }
 </style>
+
 <div class="topnav">
   <ul>
   <a class="active" href="/">Home</a>
@@ -50,7 +48,9 @@
 </div>
 ## About Me
 <img src="https://raw.githubusercontent.com/bwagner2-git/ECE5960/main/headshot.jpeg" height="200" ALIGN="left" style="padding-right:20px"/>
-Greetings! My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT.
+Greetings! My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT. 
+
+submit change color back to 04AA6D maybe and add to all other pages
 
 
 
