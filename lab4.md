@@ -30,11 +30,11 @@
 
 <div class="topnav">
   <ul>
-  <a class="active" href="/">Home</a>
+  <a href="/">Home</a>
   <a href="/lab1"> Lab 1 </a>
   <a href="/lab2">Lab 2</a>
   <a href="/lab3"> Lab 3</a>
-  <a href="/lab4">Lab 4</a>
+  <a class="active" href="/lab4">Lab 4</a>
   <a href="/lab5">Lab 5</a>
   <a href="/lab6">Lab 6</a>
   <a href="/lab7">Lab 7</a>
