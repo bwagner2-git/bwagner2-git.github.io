@@ -1,7 +1,10 @@
 <!-- # ECE 5960 -->
-<html>
- {% include navigation.html}
- </html>
+<div class="topnav">
+  <a class="active" href="#home">Home</a>
+  <a href="#news">News</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+</div>
  <br>
 ## About Me
 <img src="https://raw.githubusercontent.com/bwagner2-git/ECE5960/main/headshot.jpeg" height="200" ALIGN="left" style="padding-right:20px"/>
