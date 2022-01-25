@@ -1,4 +1,5 @@
 <!-- # ECE 5960 -->
+<style>
 .topnav {
   background-color: #333;
   overflow: hidden;
@@ -25,12 +26,13 @@
   background-color: #04AA6D;
   color: white;
 }
+</style>
 <div class="topnav">
   <ul>
   <a class="active" href="/">Home</a>
   <a href="/lab1"> Lab 1 </a>
-  <a href="/lab2">Lab 2 |</a>
-  <a href="/lab3"> Lab 3 |</a>
+  <a href="/lab2">Lab 2</a>
+  <a href="/lab3"> Lab 3</a>
   <a href="/lab4">Lab 4</a>
   <a href="/lab5">Lab 5</a>
   <a href="/lab6">Lab 6</a>
@@ -45,8 +47,7 @@
 </div>
 ## About Me
 <img src="https://raw.githubusercontent.com/bwagner2-git/ECE5960/main/headshot.jpeg" height="200" ALIGN="left" style="padding-right:20px"/>
-Greetings! My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT. test
-
+Greetings! My name is Ben Wagner and this is a GitHub page for my fast robotics class at Cornell. I recently graduated from the Illinois Institute of Technology with a bachelor's degree in electrical engineering. I am now in the ECE M.Eng. program here at Cornell starting my second semester. My primary interests are embedded systems, firmware, robotics, and the IoT.
 
 
 
