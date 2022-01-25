@@ -1,7 +1,8 @@
 <!-- # ECE 5960 -->
 <style>
 .topnav {
-  background-color: #333;
+<!--   background-color: #333; -->
+  background-color: #1FD2D5;
   overflow: hidden;
 }
 
@@ -23,8 +24,7 @@
 
 /* Add a color to the active/current link */
 .topnav a.active {
-<!--   background-color: #04AA6D; -->
-  background-color: #1FD2D5;
+  background-color: #04AA6D;
   color: white;
 }
 </style>
