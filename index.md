@@ -10,7 +10,7 @@
   float: left;
   color: #f2f2f2;
   text-align: center;
-  padding: 10px 5px;
+  padding: 10px 7px;
   text-decoration: none;
   font-size: 15px;
 }
