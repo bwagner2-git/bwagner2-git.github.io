@@ -2,14 +2,15 @@
 <style>
 .topnav {
 <!--   background-color: #333; -->
-  background-color: #1FD2D5;
+  background-color: #111;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: left;
-  color: #f2f2f2;
+<!--   color: #f2f2f2; -->
+  color: #1FD2D5;
   text-align: center;
   padding: 10px 7px;
   text-decoration: none;
