@@ -50,8 +50,6 @@
 
 ##Part 1: Blink
 The first part of this lab consisted of uploading the blink example code to the Artemis Nano and observing the behavior. Below is a video demonstrating that this was completed successfully.
-<iframe width="420" height="315"
-src="https://www.youtube.com/watch?v=Rr4qf5RxXmI"
-</iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Rr4qf5RxXmI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
