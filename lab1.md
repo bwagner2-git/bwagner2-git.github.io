@@ -57,7 +57,7 @@ The next part of this lab again consisted of uploading example code to the Artem
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gsTndgzi1MY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Part 3: Temperature Sensor
-The next part of the lab consisted of uploading the analog read example code to the Artemis Nano. In this example, the Artemis Nano send out data from its onboard temperature sensor and I read it in the serial monitor.
+The next part of the lab consisted of uploading the analog read example code to the Artemis Nano. In this example, the Artemis Nano reported on data that it captured from its onboard temperature sensor. This was then displayed in the serial monitor.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XALgurxx6d4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Part 4: Loudest Frequency
