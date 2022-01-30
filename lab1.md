@@ -61,7 +61,7 @@ The next part of the lab consisted of uploading the analog read example code to 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/XALgurxx6d4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Part 4: Loudest Frequency
-For this part of the lab I uploaded example code. This code used the pulse density microphone on the Artemis board to print out values representing the loudest frequenct present in real-time. It utilized an FFT to accomplish this. In the example below, I whistle towards the board and the values, which are being printed on the serial monitor, change significantly.
+For this part of the lab I uploaded example code. This code used the pulse density microphone on the Artemis board to print out values representing the loudest frequency present in real-time. It utilized an FFT to accomplish this. In the example below, I whistle towards the board and the values, which are being printed on the serial monitor, change significantly.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/zzwfq-nGOgk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
