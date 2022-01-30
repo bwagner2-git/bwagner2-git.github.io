@@ -68,12 +68,12 @@ For this part of the lab I uploaded example code. This code used the pulse densi
 
 ### Part 5: Whistle Blink
 In this part of the lab, I was tasked with lighting up the onboard LED when I whistled at the Artemis and turning it off otherwise. I did this by modifying the "loudest frequency" example code. I first set the onboard LED to an output in the setup loop. I then looked at the serial monitor during the loudest frequency example. I saw that when I was not whistling, the loudest frequency value was consistenly below 1500. However, when I whistled the values jumped above 1500. Because of this I thought that this would be an appropriate threshold value to determine whehter or not I was whistling. I then set the LED based on how the louded frequency value compared to this threshold value. The pseudo code is as follows:
-``
+```
 if loudestFrequency>1500:
   turn the LED on
 else:
   turn the LED off
-``
+```
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/DCdwJuWWQZU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
