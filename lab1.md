@@ -47,3 +47,11 @@
   </ul>
 </div>
 ## Lab 1
+
+##Part 1: Blink
+The first part of this lab consisted of uploading the blink example code to the Artemis Nano and observing the behavior. Below is a video demonstrating that this was completed successfully.
+<iframe width="420" height="315"
+src="https://www.youtube.com/watch?v=Rr4qf5RxXmI"
+</iframe>
+
+
