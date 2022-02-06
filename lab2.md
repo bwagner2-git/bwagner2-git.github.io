@@ -87,6 +87,23 @@ In the Artemis code, strings of characters to be sent to Python are written to t
 So to go from BLECStringCharactersitic to a Python float you would go BLECStringCharactersitic->bytes object->string->float. Going from a string to float could be done with a simple cast. To go from BLEFloatCharactersitic to float you would go BLEFloatCharactersitic->bytes object->float. This is shown below.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.20.23%20PM.png" height="200"/>
 If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that.
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.50.02%20PM.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.50.02%20PM.png" height="400"/>
+
+To test the data rate I defined the function shown below. Essentially it creats some bytes object to send to the Artemis and have the Artemis echo it back. I set the echo command back to its original state so that it did not augment whatever it was sent for this exercise. The amount of bytes that are sent are 2 times the original message length because the bytes need to be sent there and back. I measured the total round trip time from the time I started sending them to the time I received all of the message back and used this to determine data rate. I then found an example on stackoverflow on how to plot my points. This plot is also shown below.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/test%20data%20rate%20function.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/testing%20data%20rate.png" height="400"/>
+Notice how the data rate tends to increase with the number of bytes you send. I think that this is because the amount of time spent setting up the connection (versus actually sending bytes) is a bigger portion of the total time when the number of bytes is lower than when you send a lot of bytes. The plot shows number of bytes on the x-axis and time on the y-axis. This plot ended up looking nice, but it seemed that the time of these transactions had a good amount of variation between runs. The effective data rates are also shown in the screenshot as requested.
+<br>
+In the Artemis code, there is a variable called interval which determines how often the Artemis updates its float value and thus sends a notification to the Python notification handler. To increase the rate at which the artemis sent data to the Python script, I made this interval value smaller. I then had the notification value print out the value of ble.time when it was updated so I could see if any values were missed. If no values were missed I should see every value increase by .5 from the previous value. I expected that the computer would drop some data, but I pushed the value of interval all the way down to 1, and it did not drop any data as the video shows below. This was suprising to me, but it was the results I got. Perhaps if I sped it up even more, I would reach a point where it did drop some of the data. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/3rMDMhQOTAk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+That concludes lab 2. Thanks for reading!
+
+
+
+
+
+
+
 
 
