@@ -73,16 +73,23 @@ append the char array to tx_estring
 write tx_estring to the tx_characteristic_string //now it will be sent back to the computer by another piece of the code
 ```
 This allowed me to send echo commands with an arbitrary string (not too long) and receive an augmented echo as shown by the following screenshot.
+<br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/augmented%20echo.png" height="200"/>
+<br>
 
 Next, I was tasked with developing the send three floats function on the Artemis side. The function was already filled out on the Jupyter Lab side. In order to develop the Artemis side of the function, I looked at the SEND_TWO_INTS function for inspiration. I first declared three floats. I then used already defined robot_cmd.get_next_value(); function three times to populate the three float variables with the proper values before printing them out on the serial monitor. The result is shown in the video below.
+<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eKT1XxwJOm0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 
 Next I set up a notifcation handler in Python to constantly receive updates of the BLEFloatCharactersitic from the Artemis. To store this information I added a "time" attribute to the BaseBLEController class. I then created a callback function that updated this attribute when it was called and used the start_notify method of the ble object to trigger this function to run when an update of BLEFloatCharactersitic was received. Below you can see the result. Notice I am never explicitly updating ble.time, it is being updated automatically. 
 <br>
 
 
-In the Artemis code, strings of characters to be sent to Python are written to the BLECStringCharactersitic where as float values that are to be sent are written to the BLEFloatCharactersitic. Both are sent as bytes and received as byte objects in Python. The strings that are sent over can simply be decoded which then converts them from a byte type to a string type. However, the floats that are sent over need to be unpacked as a float value. This action takes them from an object of type bytes to an object of type float. Information about unpacking can be found here  https://docs.python.org/3/library/struct.html. This is evident if you dive into the part of the library shown below. <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.25.32%20PM.png" height="200"/>
+In the Artemis code, strings of characters to be sent to Python are written to the BLECStringCharactersitic where as float values that are to be sent are written to the BLEFloatCharactersitic. Both are sent as bytes and received as byte objects in Python. The strings that are sent over can simply be decoded which then converts them from a byte type to a string type. However, the floats that are sent over need to be unpacked as a float value. This action takes them from an object of type bytes to an object of type float. Information about unpacking can be found here  https://docs.python.org/3/library/struct.html. This is evident if you dive into the part of the library shown below.
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.25.32%20PM.png" height="200"/>
+<br>
 
 So to go from BLECStringCharactersitic to a Python float you would go BLECStringCharactersitic->bytes object->string->float. Going from a string to float could be done with a simple cast. To go from BLEFloatCharactersitic to float you would go BLEFloatCharactersitic->bytes object->float. This is shown below.
 <br>
