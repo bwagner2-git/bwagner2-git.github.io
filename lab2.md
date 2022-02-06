@@ -84,7 +84,8 @@ Next, I was tasked with developing the send three floats function on the Artemis
 
 Next I set up a notifcation handler in Python to constantly receive updates of the BLEFloatCharactersitic from the Artemis. To store this information I added a "time" attribute to the BaseBLEController class. I then created a callback function that updated this attribute when it was called and used the start_notify method of the ble object to trigger this function to run when an update of BLEFloatCharactersitic was received. Below you can see the result. Notice I am never explicitly updating ble.time, it is being updated automatically. 
 <br>
-
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TryxutuBv3o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 
 In the Artemis code, strings of characters to be sent to Python are written to the BLECStringCharactersitic where as float values that are to be sent are written to the BLEFloatCharactersitic. Both are sent as bytes and received as byte objects in Python. The strings that are sent over can simply be decoded which then converts them from a byte type to a string type. However, the floats that are sent over need to be unpacked as a float value. This action takes them from an object of type bytes to an object of type float. Information about unpacking can be found here  https://docs.python.org/3/library/struct.html. This is evident if you dive into the part of the library shown below.
 <br>
