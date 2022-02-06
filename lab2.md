@@ -72,6 +72,6 @@ append the char array to tx_estring
 write tx_estring to the tx_characteristic_string //now it will be sent back to the computer by another piece of the code
 ```
 This allowed me to send echo commands with an arbitrary string (not too long) and receive an augmented echo as shown by the following screenshot.
-<img src="https://raw.githubusercontent.com/bwagner2-git.github.io/blob/main/screenshots/lab2/augmented%20echo.png" height="200" ALIGN="left" style="padding-right:20px"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/augmented%20echo.png" height="200" ALIGN="left" style="padding-right:20px"/>
 
 
