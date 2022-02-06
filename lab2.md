@@ -51,11 +51,12 @@
 
 ### Demo
 To start this lab I loaded up the provided demo code both on the Artemis and in Jupyter Lab after I had done all of the necessary installations. I then followed the demo code as instructed. Screenshots below show that this was accomplished.
-<img src="https://raw.githubusercontent.com//bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/mac%20address%20advertising.png" height="200" ALIGN="left" style="padding-right:20px"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/connected.png" height="200" ALIGN="left" style="padding-right:20px"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/connected2.png" height="200" ALIGN="left" style="padding-right:20px"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/connected3%202%20ints.png" height="200" ALIGN="left" style="padding-right:20px"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/disconnect.png" height="200" ALIGN="left" style="padding-right:20px"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/mac%20address%20advertising.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected2.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected3%202%20ints.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/disconnect.png" height="200"/>
+
 
 ### Tasks
 Next I modified and added to this base code to accomplish the tasks. The first task was to "Send an ECHO command with a string value from the computer to the Artemis board, and receive an augmented string on the computer." I implemented this in such a way that the user would send a string to the Artemis, then the Artemis would add a winky-face, ;), and send it back for the computer to print out. On the Artemis side, I found the switch case where it was handling the ECHO command. There was already an array that had the character values of the string in it called char_arr. To append the winky face, I created a pointer that pointed to the first character in the array. I then moved the pointer forward until it pointed to a NULL value signalling I had reached the end of the string. I then changed the value pointed to by the pointer to a ";" and incremented the pointer by 1 and changed that value to a ")". 
@@ -72,6 +73,6 @@ append the char array to tx_estring
 write tx_estring to the tx_characteristic_string //now it will be sent back to the computer by another piece of the code
 ```
 This allowed me to send echo commands with an arbitrary string (not too long) and receive an augmented echo as shown by the following screenshot.
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/augmented%20echo.png" height="200" ALIGN="left" style="padding-right:20px"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/augmented%20echo.png" height="200"/>
 
 
