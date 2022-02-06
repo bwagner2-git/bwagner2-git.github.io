@@ -86,4 +86,7 @@ In the Artemis code, strings of characters to be sent to Python are written to t
 
 So to go from BLECStringCharactersitic to a Python float you would go BLECStringCharactersitic->bytes object->string->float. Going from a string to float could be done with a simple cast. To go from BLEFloatCharactersitic to float you would go BLEFloatCharactersitic->bytes object->float. This is shown below.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.20.23%20PM.png" height="200"/>
+If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.50.02%20PM.png" height="200"/>
+
 
