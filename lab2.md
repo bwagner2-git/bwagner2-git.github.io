@@ -88,7 +88,7 @@ So to go from BLECStringCharactersitic to a Python float you would go BLECString
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.20.23%20PM.png" height="200"/>
 <br>
-If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that.
+If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that. If you want have numeric characters such as '1' and '2' and you want to send over 1.2, you can write those to the BLECStringCharactersitic along with the decimal point, receive them as a string, "12" and then cast them to a float. If you have a float variable set to 1.2 on the Artemis that you want to get to Python, you can write it to BLEFloatCharactersitic and use Python to unpack it straight into a float.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.50.02%20PM.png" height="400"/>
 <br>
