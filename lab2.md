@@ -88,10 +88,12 @@ So to go from BLECStringCharactersitic to a Python float you would go BLECString
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.20.23%20PM.png" height="200"/>
 <br>
-If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that. If you want have numeric characters such as '1' and '2' and you want to send over 1.2, you can write those to the BLECStringCharactersitic along with the decimal point, receive them as a string, "12" and then cast them to a float. If you have a float variable set to 1.2 on the Artemis that you want to get to Python, you can write it to BLEFloatCharactersitic and use Python to unpack it straight into a float.
+If you try to read in the float characteristic as a string or the string characteristic as a float you get the errors shown below. Essentially, if something is sent as a float characteristic it should be read in as a float and if something is sent as a string characteristic it should be read as a string and then it can be converted to whatever after that.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab2/Screen%20Shot%202022-02-06%20at%203.50.02%20PM.png" height="400"/>
 <br>
+ If you have numeric characters such as '1' and '2' and you want to send over 1.2, you can write those to the BLECStringCharactersitic along with the ascii decimal point, receive them as a string, "1.2" and then cast that to a float. If you have a float variable set to 1.2 on the Artemis that you want to get to Python, you can write it to BLEFloatCharactersitic and use Python to unpack it straight into a float ater it is sent over as bytes.
+ <br>
 
 To test the data rate I defined the function shown below. Essentially it creats some bytes object to send to the Artemis and have the Artemis echo it back. I set the echo command back to its original state so that it did not augment whatever it was sent for this exercise. The amount of bytes that are sent are 2 times the original message length because the bytes need to be sent there and back. I measured the total round trip time from the time I started sending them to the time I received all of the message back and used this to determine data rate. I then found an example on stackoverflow on how to plot my points. This plot is also shown below.
 <br>
