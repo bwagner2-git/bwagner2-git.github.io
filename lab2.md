@@ -53,8 +53,8 @@
 To start this lab I loaded up the provided demo code both on the Artemis and in Jupyter Lab after I had done all of the necessary installations. I then followed the demo code as instructed. Screenshots below show that this was accomplished.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/mac%20address%20advertising.png" height="200"/>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected.png" height="200"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected2.png" height="200"/>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected3%202%20ints.png" height="200"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected2.png" height="300"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/connected3%202%20ints.png" height="300"/>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/disconnect.png" height="200"/>
 
 
