@@ -49,7 +49,18 @@
 
 ## Lab 3
 
-Below is my circuit diagram showing how I hooked up the three sensors so that they could communicate to the Artemis using I2C.
+Below is my circuit diagram showing how I hooked up the three sensors so that they could communicate to the Artemis using I2C. I am choosing to set the shutdown pin one on of the TOF sensors, change the address of the other, and then re-enable the TOF sensor instead of shuting one down before every transaction. I do all of this in setup so that it is only run once. Here is the pseudo code:
+```
+declare sensor 1;
+declare sensor 2;
+pull shutdown pin on sensor 1 low;
+change I2C address of sensor 2;
+set shutdown pin on sensor 1 high; // re-enabling it
+interact with sensor 1;
+interact with sensor 2;
+```
+The benefit of doing it this way is that I use less wires, because I would need to have a shutdown wire going to sensor 2 if not. This implementation is also more efficient because I only need to spend time setting a shutdown pin once at the beginning and do not need to worry about it any more. Toggling between the two sensors shutting one down and reading from the other, would likely be more memory efficient as I would likely only need one sensor object in my program.
+
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/circuit%20diagram.png" height="800"/>
 
 
