@@ -60,6 +60,7 @@ interact with sensor 1;
 interact with sensor 2;
 ```
 The benefit of doing it this way is that I use less wires, because I would need to have a shutdown wire going to sensor 2 if not. This implementation is also more efficient because I only need to spend time setting a shutdown pin once at the beginning and do not need to worry about it any more. Toggling between the two sensors shutting one down and reading from the other, would likely be more memory efficient as I would likely only need one sensor object in my program.
+I will place one TOF sensor on the front of the robot and one on the side. It seems that I might miss objects that are in between these two sensors field of views as well as on my blind side and in the back.
 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/circuit%20diagram.png" height="800"/>
 
