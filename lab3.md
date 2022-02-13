@@ -48,3 +48,26 @@
 </div>
 
 ## Lab 3
+
+Below is my circuit diagram showing how I hooked up the three sensors so that they could communicate to the Artemis using I2C.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/circuit%20diagram.png" height="800"/>
+
+
+### part 3a Time of Flight Sensors
+1. I experienced the same common error when trying to read the I2C address of the time of flight sensor using the example script. The TA instructed me to paste a copy of my results showing the bug which was the common one experienced in the class. 
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/I2C%20address%20bug.png" height="800"/>
+2. Looking at the data sheet shows that the benefit of using the short range mode on the time of flight sensor over the long range mode is "better ambient immunity". This means that at shorter ranges, the sensor will be less sensitive to impoerfections and inconsistencies in the environment. The benefit of using the long range mode is obviously that you can see further and the drawback is that the sensor will have more error in certain environments. Because we are operating our cars in the fairly controlled enviroment of the lab, it will likely make sense to use the long range mode so that we can see further out. The medium mode obviously experiences both the pros and cons of each mode to a less extreme degree.
+3. 
+
+
+
+
+### part 3b
+1. I experienced the same common error when trying to read the I2C address of the time of flight sensor using the example script. The TA instructed me to paste a copy of my results showing the bug which was the common one experienced in the class. 
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/I2C%20address%20bug.png" height="800"/>
+
+
+
+
+
+
