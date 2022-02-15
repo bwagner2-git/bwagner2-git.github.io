@@ -92,6 +92,9 @@ print endTime-startTime;
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/I2C%20address%20bug.png" height="800"/>
 
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PWmsGQvqPLI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 
