@@ -84,6 +84,40 @@ print endTime-startTime;
 ```
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/ranging%20time.png" height="800"/>
 
+To measure reliability of the sensor, I made some modifications to the code so that it would calculate the squared standard deviation of the first one hundred measurements that distance sensor one took and print them out to the screen. To do this I defined the following global variables.
+```
+//test reliability of the sensor
+float reliability[100];
+int times=0;
+float total=0;
+float sumOfs=0;
+```
+I then added the following to the loop function.
+```
+  //test reliability of the sensor
+  if (times<100){
+    reliability[times]=distanceOne;
+    times+=1;
+    total+=distanceOne;
+  } else{
+    int p;
+    float average=total/100;
+    for(p=0;p<100;p++){
+      sumOfs+=(reliability[p]-average)*(reliability[p]-average);    
+    }
+    Serial.print("standard deviation squared is ");
+    Serial.println(sumOfs/100);
+    delay(10000);
+  }
+```
+I got the following at close range.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.51.49%20PM.png" height="800"/>
+
+I got the following at a further range.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.53.06%20PM.png" height="800"/>
+
+As we would intuitively expect the sensor seems to get less reliable at farther ranges.
+
 #### 5690 Questions
 1. There are many types of IR sensors. 2 prevalent types are Amplitude based IR sensors and IR Time of Flight sensors. Amplitude based IR sensors work by having a transmitter send out infared light and then you have a receiver measure amplitude of the reflected light which will change with the distance that the light was reflected from. Time of Flight sensors also send out an infared signal and they measure the time it takes to see the reflection which gives you information about how far away the surface the light reflected off of is. These sensors do not technically measure the time between sending and receiving the signal, but instead they measure the phase difference between the sent signal and the reflected signal which is coorelated to the time.
 ##### Amplitude Based IR Sensors
@@ -101,6 +135,11 @@ print endTime-startTime;
 * complicated processing
 * they have a low sampling frequency (typically about 7-30Hz)
 
+2. According to the documentation (https://cdn.sparkfun.com/assets/e/1/8/4/e/VL53L1X_API.pdf), the .setIntermeasurementPeriod(); function is used affects the sensor's delay between two ranging operations. The .setTimingBudgetInMs(); function is the time that the sensor is allowed to perform one ranging operation.
+The functions that were provided however, do not work with this specific sensor as it is not the official Sparkfun library sensor. The screenshot below demonstrates that I tried this exercise. I also tried to experiment with this command VL53L1_SetInterMeasurementPeriodMilliSeconds(&myICM,1000 ); that I found in the aforementioned manual, but it did not work either. For now I am just going to stick with the default values, but it will be nice to know that there might be a way to change these settings moving forward and I can ask the TAs for help on how to accomplish this. Given that the TOF sensor is fairly slow, it seems that as we are in a fast robotics course and we are not extremely power constrained, that we might want to decrease the intermeasurement period and try to ramp up our sampling rate.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.20.33%20PM.png" height="800"/>
+
+3. 
 
 ### part 3b
 1. I experienced the same common error when trying to read the I2C address of the time of flight sensor using the example script. The TA instructed me to paste a copy of my results showing the bug which was the common one experienced in the class. 
