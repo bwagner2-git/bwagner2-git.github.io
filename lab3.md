@@ -84,7 +84,12 @@ print endTime-startTime;
 ```
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/ranging%20time.png" height="800"/>
 
-
+#### 5690 Questions
+1. There are many types of IR sensors.
+* Amplitude Based IR Sensors
+** Pros
+*** they are really cheap and have a small form factor
+**Cons
 
 
 ### part 3b
