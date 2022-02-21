@@ -118,7 +118,7 @@ I got the following at a further range.
 
 As we would intuitively expect the sensor seems to get less reliable at farther ranges.
 
-To measure the range of the sensors, I started at a wall and backed up until I started seeing unexpected sensor readings. The screenshot below demonstrated what this output looked like. Note the sensor in question is sensor 1. I saw the readings go up to about 2m and then after I backed up pas 
+To measure the range of the sensors, I started at a wall and backed up until I started seeing unexpected sensor readings. The screenshot below demonstrated what this output looked like. Note the sensor in question is sensor 1. I saw the readings go up to about 2m and then after I backed up past that, the sensor readings started to decrease. I do not know if it was bouncing off of something other than the doorm, but this is the behavior I observed. In the screenshot I am backing up and you see it start to go up towards 2m and then begining to drop off after that.
 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%203.24.35%20PM.png"/>
 
