@@ -114,7 +114,7 @@ I got the following at close range.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.51.49%20PM.png" height="800"/>
 
 I got the following at a further range.
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.53.06%20PM.png" height="800"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.53.06%20PM.png"/>
 
 As we would intuitively expect the sensor seems to get less reliable at farther ranges.
 
