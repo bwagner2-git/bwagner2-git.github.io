@@ -144,7 +144,9 @@ The video below shows that I successfully hooked up and read from the 2 ToF sens
 The functions that were provided however, do not work with this specific sensor as it is not the official Sparkfun library sensor. The screenshot below demonstrates that I tried this exercise. I also tried to experiment with this command VL53L1_SetInterMeasurementPeriodMilliSeconds(&myICM,1000 ); that I found in the aforementioned manual, but it did not work either. For now I am just going to stick with the default values, but it will be nice to know that there might be a way to change these settings moving forward and I can ask the TAs for help on how to accomplish this. Given that the TOF sensor is fairly slow, it seems that as we are in a fast robotics course and we are not extremely power constrained, that we might want to decrease the intermeasurement period and try to ramp up our sampling rate.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.20.33%20PM.png"/>
 
-3. 
+3. When I rapidly moved the sensor I received some measurements that were flagged as invalid. This is shown below. This might affect our robot when it is moving really fast. In future labs when we are dealing with measurements at high speeds, it might be wise to look at this signal and sigma and throw out invalid measurements.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%203.14.37%20PM.png
+" height=800/>
 
 ### part 3b
 1. I experienced the same common error when trying to read the I2C address of the time of flight sensor using the example script. The TA instructed me to paste a copy of my results showing the bug which was the common one experienced in the class. 
