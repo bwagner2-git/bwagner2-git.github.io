@@ -85,11 +85,21 @@ print endTime-startTime;
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/ranging%20time.png" height="800"/>
 
 #### 5690 Questions
-1. There are many types of IR sensors.
-* Amplitude Based IR Sensors
-** Pros
-*** they are really cheap and have a small form factor
-**Cons
+1. There are many types of IR sensors. 2 prevalent types are Amplitude based IR sensors and IR Time of Flight sensors. Amplitude based IR sensors work by having a transmitter send out infared light and then you have a receiver measure amplitude of the reflected light which will change with the distance that the light was reflected from. Time of Flight sensors also send out an infared signal and they measure the time it takes to see the reflection which gives you information about how far away the surface the light reflected off of is. These sensors do not technically measure the time between sending and receiving the signal, but instead they measure the phase difference between the sent signal and the reflected signal which is coorelated to the time.
+##### Amplitude Based IR Sensors
+###### Pros
+* they are really cheap and have a small form factor
+###### Cons
+* affected by reflectivity of target
+* does not work in settings with high amounts of ambient light
+##### IR Time of Flight
+###### Pros
+* small form factor
+* Not sensitive to target color, texture, or ambient light
+###### Cons
+* relatively expensive
+* complicated processing
+* they have a low sampling frequency (typically about 7-30Hz)
 
 
 ### part 3b
