@@ -118,7 +118,9 @@ I got the following at a further range.
 
 As we would intuitively expect the sensor seems to get less reliable at farther ranges.
 
+To measure the range of the sensors, I started at a wall and backed up until I started seeing unexpected sensor readings. The screenshot below demonstrated what this output looked like. Note the sensor in question is sensor 1. I saw the readings go up to about 2m and then after I backed up pas 
 
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%203.24.35%20PM.png"/>
 
 The video below shows that I successfully hooked up and read from the 2 ToF sensors.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/uF7pzUjcBoQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
