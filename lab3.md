@@ -84,7 +84,7 @@ print endTime-startTime;
 ```
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/ranging%20time.png" height="800"/>
 
-To measure reliability and repeatability of the sensor, I made some modifications to the code so that it would calculate the squared standard deviation of the first one hundred measurements that distance sensor one took and print them out to the screen. To do this I defined the following global variables.
+To measure reliability and repeatability of the sensor, I made some modifications to the code so that it would calculate the squared standard deviation of the first one hundred measurements that distance sensor one took and print it out to the screen. To do this I defined the following global variables.
 ```
 //test reliability of the sensor
 float reliability[100];
