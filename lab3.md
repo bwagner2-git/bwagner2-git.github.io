@@ -118,7 +118,7 @@ I got the following at a further range.
 
 As we would intuitively expect the sensor seems to get less reliable at farther ranges.
 
-Becuase the sensor is a ToF sensor it is not very sensitive to different colors or textures.
+Becuase the sensor is a ToF sensor it is not very sensitive to different colors or textures. I did however see some weird behavior on the sensor when I was measuring how far away it was from my computer screen. The values seemed to fluctuate more at a given distance and I am guessing it is because my computer screen is emitting light.
 
 To measure the range of the sensors, I started at a wall and backed up until I started seeing unexpected sensor readings. The screenshot below demonstrated what this output looked like. Note the sensor in question is sensor 1. I saw the readings go up to about 2m and then after I backed up past that, the sensor readings started to decrease. I do not know if it was bouncing off of something other than the doorm, but this is the behavior I observed. In the screenshot I am backing up and you see it start to go up towards 2m and then begining to drop off after that.
 
