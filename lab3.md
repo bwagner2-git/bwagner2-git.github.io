@@ -143,9 +143,12 @@ The video below shows that I successfully hooked up and read from the 2 ToF sens
 * they have a low sampling frequency (typically about 7-30Hz)
 
 2. According to the documentation (https://cdn.sparkfun.com/assets/e/1/8/4/e/VL53L1X_API.pdf), the .setIntermeasurementPeriod(); function is used affects the sensor's delay between two ranging operations. The .setTimingBudgetInMs(); function is the time that the sensor is allowed to perform one ranging operation.
-The functions that were provided however, do not work with this specific sensor as it is not the official Sparkfun library sensor. The screenshot below demonstrates that I tried this exercise. I also tried to experiment with this command VL53L1_SetInterMeasurementPeriodMilliSeconds(&myICM,1000 ); that I found in the aforementioned manual, but it did not work either. For now I am just going to stick with the default values, but it will be nice to know that there might be a way to change these settings moving forward and I can ask the TAs for help on how to accomplish this. Given that the TOF sensor is fairly slow, it seems that as we are in a fast robotics course and we are not extremely power constrained, that we might want to decrease the intermeasurement period and try to ramp up our sampling rate.
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/Screen%20Shot%202022-02-21%20at%2012.20.33%20PM.png"/>
-I did find provided example called Example_4_setIntermeasurementPeriod. This allowed 
+I used the millis to measure time. In this exercise, I just shutdown the first time of flight sensor. I then used the aformentioned functions on the second time of flight sensor. In one example I gave it a longer time to do what it needed to do setting the time budget to 200ms and the intermeasurement period to 800ms. This provided the results shown in the first screenshot below. I then put a heavier time constraint on the sensor by setting the time budget to 20ms and the intermeasurement period to 50ms. This sped up the sensor and provided the resutls shown in the second screeshot below. Given that the TOF sensor is fairly slow, it seems that as we are in a fast robotics course and we are not extremely power constrained, that we might want to decrease the intermeasurement period and try to ramp up our sampling rate.
+#### slower
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/slower%20800%20and%20200.png"/>
+#### faster
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/faster%2020%20and%2050.png"/>
+
 
 
 3. When I rapidly moved the sensor I received some measurements that were flagged as invalid. This is shown below. This might affect our robot when it is moving really fast. In future labs when we are dealing with measurements at high speeds, it might be wise to look at this signal and sigma and throw out measurements flagged as invalid.
