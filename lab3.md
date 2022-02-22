@@ -268,6 +268,61 @@ The video below shows that I completed the gyro portion and got the gyro working
 The gyro is much less noisy than the accelerometer, especially when the accelerometer output is not filtered. However, when using the gyroscope to measure roll, pitch, and yaw, error accumulates and they drift away from the proper values. The accelerometer is much more accurate but the gyroscope is much less noisy. Becuase of this, combining the two sensors is a great way to utilize sensor fusion to achieve desirable results. 
 <br>
 When dealing with the gyro, increasing the sampling frequency would likely cause error to accumulate faster, but it would also increase the resolution of the signal. Decreasing the sampling frequency would obvisouly have the opposite effect.
+<br>
+<br>
+As mentioned previously the magnetometer and gyroscope outputs can be combined and used to produce a smooth and accurate output. This is a great example of sensor fusion. I used the code below to accomplish this.
+```
+float pitch_a;
+float roll_a;
+float alpha=0.1;
+float pitch_g;
+float roll_g;
+float dt;
+float last_time=0;
+float pitch;
+float roll;
+void loop()
+{
+  dt=(micros()-last_time)/1000000.;
+  last_time=micros();
+  if (myICM.dataReady())
+  {
+//    Serial.println(myICM.gyrX());
+    myICM.getAGMT();         // The values are only updated when you call 'getAGMT'
+    pitch_a=180*atan2(myICM.accX(),myICM.accZ())/M_PI; //calculate and convert to degrees
+    roll_a=180*atan2(myICM.accY(),myICM.accZ())/M_PI;
+    pitch_g=pitch_g+myICM.gyrX()*dt;
+    roll_g=roll_g+myICM.gyrY()*dt;
+    pitch=pitch_g*(1-alpha)+pitch_a*alpha;
+    roll=roll_g*(1-alpha)+roll_a*alpha;
+    Serial.print(pitch);
+    Serial.print(", ");
+    Serial.println(roll); 
+    delay(30);
+  }
+  else
+  {
+    SERIAL_PORT.println("Waiting for data");
+    delay(500);
+  }
+}
+```
+The video below shows the result. I will continue to play around with alpha to find the ideal balance as I meet new constraints in future labs. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bL2MuCAobXw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+###### 5960 Extra Questions
+I used the following code which was provided in the lab description to use the magnetometer to find true North.
+```
+  roll=roll_g*(1-alpha)+roll_a*alpha;
+    pitch=pitch*M_PI/180; //convert back to radians
+    roll=roll*M_PI/180;
+    xm = myICM.magX()*cos(pitch) - myICM.magY()*sin(roll)*sin(pitch) + myICM.magZ()*cos(roll)*sin(pitch); //these were saying theta=pitch and roll=phi 
+    ym = myICM.magY()*cos(roll) + myICM.magZ()*sin(roll); 
+    yaw = atan2(ym, xm);
+    Serial.println(yaw);
+```
+My results were not tremendously accurate. The video below shows this. In the video, the sensor reading does get fairly close to 0 as the sensor approaches true North as measured by my phone, and it clearly responds to changes in angle and thus could be useful later on. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4YJLGHAzudk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
 
