@@ -161,6 +161,9 @@ I used the millis to measure time. In this exercise, I just shutdown the first t
 
 2. IMU Setup: I ran the example script successfully as shown in the video below. The ADO_VAL represents the last bit of the IMU's I2C address and should be 0. When I rotate the IMU about a given axis, move it, or flip it, I see a change in the 3 element arrays for the accelerometer and gyroscope as expected. I do not want to flip it around too much out of fear that my wiring will break.
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/7xMt1nCrQj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
 
 
 
