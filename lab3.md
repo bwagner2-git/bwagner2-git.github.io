@@ -164,6 +164,20 @@ I used the millis to measure time. In this exercise, I just shutdown the first t
 <iframe width="560" height="315" src="https://www.youtube.com/embed/7xMt1nCrQj8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
+#### Accelerometer 
+The video below shows my accelerometer being used to output roll and pitch. At this point the output has already been low passed using an alpha value of .2 which seemed to produce good results. 
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T8Ca__Fgnn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+Using the percent error equation of PE=100% * (actual-expected)/expected I examined the accuracy of the sensor at various positions. The results are below.
+* When the sensor was held flat on the table (i.e. expected pitch and roll equal 0) pitch looked to be about 5 degrees off on average and roll looked to be about 1 degree off on avearge. However, there is no garuntee that my table is 100% perpendicular to gravitational pull either.
+* At expected 90 degrees pitch was about 1 degree off (PE=1.1%) and roll was about 2 degrees off (PE=2.2%)
+* At expected -90 degrees pitch was about 2 degrees off (PE=2.2%) and roll was about 2 degrees off (PE=2.2%)
+To measure these I tried to use the side of my computer and press the sensor as close to it as possible, but again it is not garunteed that the sides of my computer are perfectly aligned perpendiculary to gravitational pull.
+
+
+
+
 
 
 
