@@ -261,6 +261,15 @@ The more aggressive the cutoff frequency, the more you will supress noise, but t
 
 
 
+##### Gyro
+The video below shows that I completed the gyro portion and got the gyro working where I was computing roll, pitch, and yaw using the gyro.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Z3O5mgeZsaA" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+The gyro is much less noisy than the accelerometer, especially when the accelerometer output is not filtered. However, when using the gyroscope to measure roll, pitch, and yaw, error accumulates and they drift away from the proper values. The accelerometer is much more accurate but the gyroscope is much less noisy. Becuase of this, combining the two sensors is a great way to utilize sensor fusion to achieve desirable results. 
+<br>
+When dealing with the gyro, increasing the sampling frequency would likely cause error to accumulate faster, but it would also increase the resolution of the signal. Decreasing the sampling frequency would obvisouly have the opposite effect.
+
+
 
 
 
