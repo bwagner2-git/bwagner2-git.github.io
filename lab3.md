@@ -251,7 +251,7 @@ I then did the following.
 <br> 
 I used this information to plot the output in the frequency domain which is shown below.
 <br>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/no%20filter%20time.png">
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/no%20filter%20freq.png">
 <br>
 I Then added the filter we saw in class which had an alpha of .2 and got the following in the time domain.
 <br>
