@@ -169,6 +169,39 @@ The video below shows my accelerometer being used to output roll and pitch. At t
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/T8Ca__Fgnn4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
+
+Below is the code I used to convert the accelerometer data into pitch and roll in terms of degrees.
+```
+float pitch_a;
+float roll_a;
+float LPF_p_a[2]={0,0};
+float LPF_r_a[2]={0,0};
+float alpha=0.2;
+void loop()
+{
+  if (myICM.dataReady())
+  {
+    myICM.getAGMT();         // The values are only updated when you call 'getAGMT'
+    pitch_a=180*atan2(myICM.accX(),myICM.accZ())/M_PI; //calculate and convert to degrees
+    roll_a=180*atan2(myICM.accY(),myICM.accZ())/M_PI;
+    LPF_p_a[1]=alpha*pitch_a+(1-alpha)*LPF_p_a[0];
+    LPF_p_a[0]=LPF_p_a[1];
+    Serial.print(LPF_p_a[1]);
+    Serial.print(", ");
+    LPF_r_a[1]=alpha*roll_a+(1-alpha)*LPF_r_a[0];
+    LPF_r_a[0]=LPF_r_a[1];
+    Serial.println(LPF_r_a[1]);
+    
+    delay(30);
+  }
+  else
+  {
+    SERIAL_PORT.println("Waiting for data");
+    delay(500);
+  }
+}
+```
+
 Using the percent error equation of PE=100% * (actual-expected)/expected I examined the accuracy of the sensor at various positions. The results are below.
 * When the sensor was held flat on the table (i.e. expected pitch and roll equal 0) pitch looked to be about 5 degrees off on average and roll looked to be about 1 degree off on avearge. However, there is no garuntee that my table is 100% perpendicular to gravitational pull either.
 * At expected 90 degrees pitch was about 1 degree off (PE=1.1%) and roll was about 2 degrees off (PE=2.2%)
