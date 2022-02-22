@@ -209,6 +209,38 @@ Using the percent error equation of PE=100% * (actual-expected)/expected I exami
 To measure these I tried to use the side of my computer and press the sensor as close to it as possible, but again it is not garunteed that the sides of my computer are perfectly aligned perpendiculary to gravitational pull.
 
 
+##### Frequency Response
+I followed this tutorial and altered it to fit my needs https://www.alphabold.com/fourier-transform-in-python-vibration-analysis/
+I plotted an FFT of the roll measured by the accelerometer when I tapped it over 2 seconds. The FFT of the pitch would likely be similar.
+I added a delay of 5 seconds in the setup to give me some time to get ready to start tapping when data appeared on the serial monitor. I held the IMU flat on the table on as soon as I saw serial data, indicating that it had started to measure, I started tapping to simulate vibrations. Once 2 seconds had passed I put the system into an infinite while loop so that I could copy over the data. The Artemis code is summarize below.
+```
+int started=0;
+long s;
+void loop()
+{
+  if (started==0){
+    s=millis();
+    started=1;
+  }
+  if (millis()-s>=2000){
+    while(1){ 
+    }
+  }
+  //take IMU accelerometer data convert to pitch and print it to the console
+  }
+  delay(3)
+}
+
+```
+Here is what the console window looked like.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/0.png">
+I then used a control a to select all of the data and bring it over to the Python script and store it as a string. I then used the split function on the string to convert it into an array with all of the data. This also let me calculate how many samples I had taken and thus (with the assumption that all the samples were originally equally spaced apart in time) also the sampling frequency. A screenshot of this is shown below.
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/1.png">
+<br>
+Once I had this, I plotted the time 
+
+
 
 
 
