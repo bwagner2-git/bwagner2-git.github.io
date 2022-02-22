@@ -229,7 +229,7 @@ void loop()
     while(1){ 
     }
   }
-  //take IMU accelerometer data convert to pitch and print it to the console
+  //take IMU accelerometer data convert to role and print it to the console
   }
   delay(3)
 }
@@ -243,7 +243,7 @@ I then used a control a to select all of the data and bring it over to the Pytho
 <br>
 Once I had this, I plotted the output in the time domain and got something that looked like this.
 <br>
-<img src="https://github.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/lab3/no%20filter%20time.png">
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/no%20filter%20time.png">
 <br>
 I then did the following.
 <br>
@@ -251,7 +251,7 @@ I then did the following.
 <br> 
 I used this information to plot the output in the frequency domain which is shown below.
 <br>
-<img src="https://github.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/lab3/no%20filter%20freq.png">
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab3/no%20filter%20time.png">
 <br>
 I Then added the filter we saw in class which had an alpha of .2 and got the following in the time domain.
 <br>
