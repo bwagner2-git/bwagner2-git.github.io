@@ -48,3 +48,18 @@
 </div>
 
 ## Lab 5
+
+
+
+
+To demonstrate control of the PWM I wrote the following below and hooked it up to the oscilloscope. This produced the results in the video below.
+
+```
+void setup() {
+  // put your setup code here, to run once
+   pinMode(1,OUTPUT);
+   analogWrite(1,50);
+   delay(10000);
+   analogWrite(1,100);
+}
+```
