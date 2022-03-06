@@ -66,3 +66,18 @@ void setup() {
 
 
 When a pwm signal of 30 out of 255 is given to the left and a pwm signal of 40 out of 255 is given to the right, the robot is just barely able to move itself.
+
+
+
+
+To make the robot go straight I used the following in setup
+```
+   pinMode(1,OUTPUT);
+   pinMode(14,OUTPUT);
+   analogWrite(14,40);//right
+   analogWrite(1,65);//left
+ ```
+ The results of this are shown below
+ INSERT YOUTUBE VIDEO HERE
+
+The tape is 8ft long and the requirement was to go 6ft still over the tape.
