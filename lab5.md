@@ -63,3 +63,6 @@ void setup() {
    analogWrite(1,100);
 }
 ```
+
+
+When a pwm signal of 30 out of 255 is given to the left and a pwm signal of 40 out of 255 is given to the right, the robot is just barely able to move itself.
