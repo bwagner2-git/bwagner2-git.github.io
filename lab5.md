@@ -81,3 +81,8 @@ To make the robot go straight I used the following in setup
  INSERT YOUTUBE VIDEO HERE
 
 The tape is 8ft long and the requirement was to go 6ft still over the tape.
+
+
+5960 Extra Questions
+1. The motors do not respond very quickly to changes in the signal. The analog write generates a PWM signal that acts as a sort of pseudo analog signal for the motor, and a higher frequency PWM signal is not going to provide any benefits as the steps are already unoticeable. The motor is an sense acts as a sort of low pass filter. 
+
