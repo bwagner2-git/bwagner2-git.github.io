@@ -56,13 +56,13 @@ Below is a picture displaying how I hooked up my motor drivers to the Artemis an
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab5/Screen%20Shot%202022-03-07%20at%2011.06.04%20PM.png" height="800"/>
 <br>
-I put all of my motor drivers in the battery compartment and sealed it with duck tape hoping that I will rarely have to open it again for repairs. This will make fixing any of the wiring for the sensors much easier as I am not dealing with the clutter from the wires for the motor drivers. I stuck with the standard color coting of red being the positive terminal and black being ground. I made the PWM wires blue.
+I put all of my motor drivers in the battery compartment and sealed it with duck tape hoping that I will rarely have to open it again for repairs. This will make fixing any of the wiring for the sensors much easier as I am not dealing with the clutter from the wires for the motor drivers. I stuck with the standard color coding of red being the positive terminal and black being ground. I made the PWM wires blue.
 
 ### 1.
-Based on a discussion I had with one of the TA's I soldered my motor drivers directly in the car and thus did not test them with an external power source. The Artemis Nano is a 3.3V device and thus when generating a PWM signal using the function generator to test the motors 3.3V should be considered high. Additionally, the batteries we are using are 3.7V so it would make sense to set the external power source to 3.7V as well.
+Based on a discussion I had with one of the TA's I soldered my motor drivers directly in the car and thus did not test them with an external power source. The Artemis Nano is a 3.3V device and thus when generating a PWM signal using the function generator to test the motors, 3.3V should be considered high. Additionally, the batteries we are using are 3.7V so it would make sense to set the external power source to 3.7V as well.
 
 ### 2.
-To demonstrate control of the PWM I wrote the following below and hooked it up to the oscilloscope. This produced the results in the video below.
+To demonstrate control of the PWM I wrote the following and hooked up my car to the oscilloscope. This produced the results in the video below.
 <br>
 ```
 void setup() {
@@ -84,7 +84,7 @@ The picture below shows I have successfully taken apart my car.
 ### 4.
 Below you can see that I am successfully able to use analog write and a set of PWM signals to drive a motor in both directions.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/n2XKL7TtEQs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-To do this I wrote a simple script that sent a pwm signal along one of the lines to the motor driver, waited, and then zeroed the first PWM signal and sent another PWM signal along the other line to the same motor driver causing it to reverse its direction. As you can see in the video, the motors are also being powered by an external battery.
+To do this I wrote a simple script that sent a PWM signal along one of the lines to the motor driver, waited, and then zeroed the first PWM signal and sent another PWM signal along the other line to the same motor driver causing it to reverse its direction. As you can see in the video, the motors are also being powered by an external battery.
 
 ### 5. 
 
@@ -158,12 +158,12 @@ void loop() {
   }
 ```
 <br>
-I added in the while(1) within the loop function so that I could capture startTime right before entering the infinite loop.
+I added the while(1) within the loop function so that I could capture startTime right before entering the infinite loop.
 
 
 ### 5960 Extra Questions
-1. The motors do not respond very quickly to changes in the signal. The analog write generates a PWM signal that acts as a sort of pseudo analog signal for the motor, and a higher frequency PWM signal is not going to provide any benefits as the steps are already unoticeable. The motor is an sense acts as a sort of low pass filter. 
-2. I discovered during this part of the lab that having delay() statements inside of a BLE portion of your program seems to break it. I suspected that there was some sort of timeout occuring so I came up with my own version of delay shown below where I use central.connected() to PING the other side of the BLE connection throughout the delay. This is shown below.
+1. The motors do not respond very quickly to changes in the signal. The analog write generates a PWM signal that acts as a sort of pseudo analog signal for the motor, and a higher frequency PWM signal is not going to provide any benefits as the steps are already unoticeable. The motor in a sense acts as a low pass filter. 
+2. I discovered during this part of the lab that having delay() statements inside of a BLE portion of your program seems to break it. I suspected that there was some sort of timeout occuring so I came up with my own version of delay shown below where I use central.connected() to PING the other side of the BLE connection throughout the delay. This is shown below and seems to be a solution.
 <br>
 ```
 startTime=millis();
@@ -174,5 +174,5 @@ while(endTime-startTime<100cont){
   }
 ```
 <br>
-I needed used this delay to slowly ramp up the duty cylce of my PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
+I used this delay to slowly ramp up the duty cylce of the PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
  
