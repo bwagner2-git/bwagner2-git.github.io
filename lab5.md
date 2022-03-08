@@ -49,20 +49,24 @@
 
 ## Lab 5
 
+### 1.
+Based on a discussion I had with one of the TA's I soldered my motor drivers directly in the car and thus did not test them with an external power source. The Artemis Nano is a 3.3V device and thus when generating a PWM signal using the function generator to test the motors 3.3V should be considered high. Additionally, the batteries we are using are 3.7V so it would make sense to set the external power source to 3.7V as well.
 
-
-
+### 2.
 To demonstrate control of the PWM I wrote the following below and hooked it up to the oscilloscope. This produced the results in the video below.
 
 ```
 void setup() {
-  // put your setup code here, to run once
    pinMode(1,OUTPUT);
    analogWrite(1,50);
    delay(10000);
    analogWrite(1,100);
 }
 ```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/SjTUtLHeQDk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+### 3.
+
 
 
 When a pwm signal of 30 out of 255 is given to the left and a pwm signal of 40 out of 255 is given to the right, the robot is just barely able to move itself.
