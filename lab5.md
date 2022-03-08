@@ -49,6 +49,14 @@
 
 ## Lab 5
 
+### Pre-lab
+By reading the datasheet for the motor driver, we see that we are supposed to hook up the red cable of the battery to Vin and the ground of the battery to GND. We also short the ground of the Artemis to the ground of the motor drivers. This common ground is important because we will be sending PWM signals from the Artemis to the motor controller so they need to have the same reference voltage. Each motor driver has two sets of inputs and two sets of outputs. We couple these in parallel so that we can provide a sufficient amount of current to make our robot fast. To parallel couple we short AIN1 and BIN1 and feed them a PWM signal, and we short AIN2 and BIN2 and feed them the other PWM signal. One PWM signal drives the motor in one direction while the other drives it in the other direction. We then short BOUT1 and AOUT1 together and BOUT2 and AOUT2 together and feed one of them to the black wire of one of the motors and the other to the red wire of the same motor. One chip controls one motor and each chip receives 2 PWM signals, one for each direction as previously mentioned.
+Because of this, we need 4 PWM signals coming from the Artemis. I chose to send the PWM signals from pins 1, 3, 14, and 16 because these pins were all PWM enabled.
+Below is a picture displaying how I hooked up my motor drivers to the Artemis and to the motors.
+<br>
+<img src="https://github.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/lab5/Screen%20Shot%202022-03-07%20at%2011.06.04%20PM.png" height="800"/>
+<br>
+
 ### 1.
 Based on a discussion I had with one of the TA's I soldered my motor drivers directly in the car and thus did not test them with an external power source. The Artemis Nano is a 3.3V device and thus when generating a PWM signal using the function generator to test the motors 3.3V should be considered high. Additionally, the batteries we are using are 3.7V so it would make sense to set the external power source to 3.7V as well.
 
