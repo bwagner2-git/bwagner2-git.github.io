@@ -56,7 +56,7 @@ Below is a picture displaying how I hooked up my motor drivers to the Artemis an
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab5/Screen%20Shot%202022-03-07%20at%2011.06.04%20PM.png" height="800"/>
 <br>
-I put all of my motor drivers in the battery component and sealed it with duck tape hoping that I will rarely have to open it again for repairs. This will make fixing any of the wiring for the sensors much easier as I am not dealing with the clutter from the wires for the motor drivers. I stuck with the standard color coting of red being the positive terminal and black being ground. I made the PWM wires blue.
+I put all of my motor drivers in the battery compartment and sealed it with duck tape hoping that I will rarely have to open it again for repairs. This will make fixing any of the wiring for the sensors much easier as I am not dealing with the clutter from the wires for the motor drivers. I stuck with the standard color coting of red being the positive terminal and black being ground. I made the PWM wires blue.
 
 ### 1.
 Based on a discussion I had with one of the TA's I soldered my motor drivers directly in the car and thus did not test them with an external power source. The Artemis Nano is a 3.3V device and thus when generating a PWM signal using the function generator to test the motors 3.3V should be considered high. Additionally, the batteries we are using are 3.7V so it would make sense to set the external power source to 3.7V as well.
