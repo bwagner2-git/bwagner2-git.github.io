@@ -76,7 +76,9 @@ void setup() {
 
 ### 3.
 The picture below shows I have successfully taken apart my car. 
+<br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab5/20220307_232130.jpg" height="800"/>
+<br>
 
 ### 4.
 Below you can see that I am successfully able to use analog write and a set of PWM signals to drive a motor in both directions.
