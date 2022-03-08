@@ -175,4 +175,4 @@ while(endTime-startTime<100cont){
 ```
 <br>
 I used this delay to slowly ramp up the duty cylce of the PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
- 
+Because of my intial issues with this Professor gave me a 2 day extension.
