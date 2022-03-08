@@ -63,7 +63,7 @@ Based on a discussion I had with one of the TA's I soldered my motor drivers dir
 
 ### 2.
 To demonstrate control of the PWM I wrote the following below and hooked it up to the oscilloscope. This produced the results in the video below.
-
+<br>
 ```
 void setup() {
    pinMode(1,OUTPUT);
@@ -72,6 +72,7 @@ void setup() {
    analogWrite(1,100);
 }
 ```
+<br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/SjTUtLHeQDk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### 3.
@@ -91,12 +92,14 @@ I found that When a PWM signal of 30 out of 255 is given to the left and a pwm s
 <br>
 
 To make the robot go straight I used the following in setup
+<br>
 ```
    pinMode(1,OUTPUT);
    pinMode(14,OUTPUT);
    analogWrite(14,40);//right
    analogWrite(1,65);//left
  ```
+ <br>
  The results of this are shown below
  
 <iframe width="560" height="315" src="https://www.youtube.com/embed/JVFt6z8-Al4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -106,6 +109,7 @@ The tape is 8ft long and the requirement was to go 6ft still over the tape.
 The video below shows untethered open loop control of the robot. In the video, the robot goes approximately straight, turns left, turns back right, and then stops and spins in both directions.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/FfuhH2_QdEk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 I used the following code to accomplish this. As you can see each maneuver is executed for approximately 2 seconds.
+<br>
 ```
 void setup(){
 //set up the pins
@@ -153,12 +157,14 @@ void loop() {
     }
   }
 ```
+<br>
 I added in the while(1) within the loop function so that I could capture startTime right before entering the infinite loop.
 
 
 ### 5960 Extra Questions
 1. The motors do not respond very quickly to changes in the signal. The analog write generates a PWM signal that acts as a sort of pseudo analog signal for the motor, and a higher frequency PWM signal is not going to provide any benefits as the steps are already unoticeable. The motor is an sense acts as a sort of low pass filter. 
 2. I discovered during this part of the lab that having delay() statements inside of a BLE portion of your program seems to break it. I suspected that there was some sort of timeout occuring so I came up with my own version of delay shown below where I use central.connected() to PING the other side of the BLE connection throughout the delay. This is shown below.
+<br>
 ```
 startTime=millis();
 endTime=millis();
@@ -167,5 +173,6 @@ while(endTime-startTime<100cont){
   int yes=central.connected();
   }
 ```
+<br>
 I needed used this delay to slowly ramp up the duty cylce of my PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
 
