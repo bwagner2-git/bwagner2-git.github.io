@@ -151,10 +151,19 @@ void loop() {
     }
   }
 ```
-
+I added in the while(1) within the loop function so that I could capture startTime right before entering the infinite loop.
 
 
 ### 5960 Extra Questions
 1. The motors do not respond very quickly to changes in the signal. The analog write generates a PWM signal that acts as a sort of pseudo analog signal for the motor, and a higher frequency PWM signal is not going to provide any benefits as the steps are already unoticeable. The motor is an sense acts as a sort of low pass filter. 
-2. 
+2. I discovered during this part of the lab that having delay() statements inside of a BLE portion of your program seems to break it. I suspected that there was some sort of timeout occuring so I came up with my own version of delay shown below where I use central.connected() to PING the other side of the BLE connection throughout the delay. This is shown below.
+```
+startTime=millis();
+endTime=millis();
+while(endTime-startTime<100cont){
+  endTime=millis();
+  int yes=central.connected();
+  }
+```
+I needed used this delay to slowly ramp up the duty cylce of my PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
 
