@@ -54,7 +54,7 @@ By reading the datasheet for the motor driver, we see that we are supposed to ho
 Because of this, we need 4 PWM signals coming from the Artemis. I chose to send the PWM signals from pins 1, 3, 14, and 16 because these pins were all PWM enabled.
 Below is a picture displaying how I hooked up my motor drivers to the Artemis and to the motors.
 <br>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/blob/main/screenshots/lab5/Screen%20Shot%202022-03-07%20at%2011.06.04%20PM.png" height="800"/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab5/Screen%20Shot%202022-03-07%20at%2011.06.04%20PM.png" height="800"/>
 <br>
 I put all of my motor drivers in the battery component and sealed it with duck tape hoping that I will rarely have to open it again for repairs. This will make fixing any of the wiring for the sensors much easier as I am not dealing with the clutter from the wires for the motor drivers. I stuck with the standard color coting of red being the positive terminal and black being ground. I made the PWM wires blue.
 
