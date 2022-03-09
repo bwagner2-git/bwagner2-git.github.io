@@ -174,5 +174,8 @@ while(endTime-startTime<100cont){
   }
 ```
 <br>
-I used this delay to slowly ramp up the duty cylce of the PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car.
-Because of my intial issues with this Professor gave me a 2 day extension.
+I used this delay to slowly ramp up the duty cylce of the PWM signal I was sending to the motor driver thus slowly ramping up the speed of the car. I used a for loop with a delay to more slowly ramp up and down the speed of the car. The for loop went from 0 to 255 and then was followed by another for loop that started at 255 and went back down to 0. The motor on one side of my car goes much faster than the other motor for a given PWM value and thus this caused my car to make a big circle as I was writing the same values to both motors drivers as they were ramped up.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/JqdB68pSowI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+After this I then did the motor ramp up, but at the same time it reported the values it was writing to the PWM lines to the Python script using a BLE notification. This was accomplished using the delay function detailed above. This is shown in a video below. Notice at the beginning that the notifications begin printing out as they are received.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/TaVS4k9pfM4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+Because of my intial issues with the BLE notification caused by the delay, Professor gave me a 2 day extension on this lab. I was not able to determine the max speed of the car because at this time, I do not feel comfortable driving it at full speed towards a wall in order to use the TOF sensors to calculate max speed.
