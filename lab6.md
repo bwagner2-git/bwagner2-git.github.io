@@ -48,3 +48,20 @@
 </div>
 
 ## Lab 6
+
+### Prelab
+At the beginning of this lab, I spent a signficant amount of time making a solid debugger which I am hoping will pay off throughout the rest of the course. Not only did I implement a debugger, but I modularized my code by creating a "bot" class. This helps me keep my code extremely clean and easy to debug when building functioality around the robot. Instantiating the robot takes three arguments. The first to arguments are pointers to TOF sensor objects and the third argument is a pointer to the IMU object. The bot then calls bot.update() to update its front sensor value, side sensor value, roll, pitch, and yaw. I changed the sensor code so that it was non-blocking. To do this I used a flag to indicate whether or not a TOF sensor was already ranging. A small piece of the updated sensor code is shown below to expound upon how I accomplished this.
+```
+if (!oneRanging){
+        dOne->startRanging(); //Write configuration bytes to initiate measurement
+        oneRanging=true;
+//        Serial.println("sensor one started ranging");
+      } else if (dOne->checkForDataReady()) {
+        front = dOne->getDistance(); //Get the result of the measurement from the sensor
+        dOne->clearInterrupt();
+        dOne->stopRanging();
+        oneRanging=false;
+      }
+```
+In this example oneRanging is the flag that describes whether a sensor is already ranging. 
+
