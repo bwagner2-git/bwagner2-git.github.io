@@ -84,4 +84,6 @@ while (log is not full) run PID controller
 send over run information
 ```
 
+For this lab I implemented a PD controller. It seems obvious that one should include the P term in this case. I chose to include a D term becuase I wanted my robot to be able to determine if it was approaching the wall too fast. 
+
 
