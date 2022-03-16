@@ -84,6 +84,6 @@ while (log is not full) run PID controller
 send over run information
 ```
 
-For this lab I implemented a PD controller. It seems obvious that one should include the P term in this case. I chose to include a D term becuase I wanted my robot to be able to determine if it was approaching the wall too fast. 
-
+For this lab I implemented a PD controller. It seems obvious that one should include the P term in this case. I chose to include a D term becuase I wanted my robot to be able to determine if it was approaching the wall too fast and slow down. For the derivative term I stored the past 4 errors and I compared the most recent error to the error from 3 times through the loop ago. I thought that this would make my D term much more resistant to variations caused by noise in the sensor readings.
+<br>
 
