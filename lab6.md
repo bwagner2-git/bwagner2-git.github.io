@@ -84,6 +84,18 @@ while (log is not full) run PID controller
 send over run information
 ```
 
-For this lab I implemented a PD controller. It seems obvious that one should include the P term in this case. I chose to include a D term becuase I wanted my robot to be able to determine if it was approaching the wall too fast and slow down. For the derivative term I stored the past 4 errors and I compared the most recent error to the error from 3 times through the loop ago. I thought that this would make my D term much more resistant to variations caused by noise in the sensor readings.
+For this lab I implemented a PD controller. It seems obvious that one should include the P term in this case. I chose to include a D term becuase I wanted my robot to be able to determine if it was approaching the wall too fast and slow down. For the derivative term I stored the past 4 errors and I subtracted the most recent error from the error from 3 times through the loop ago. I thought that this would make my D term much more resistant to variations caused by noise in the sensor readings. The code below shows my PD controller.
+```
+theerror=myBot.front-300;
+          pe[0]=pe[1]; //previous error array
+          pe[1]=pe[2];
+          pe[2]=pe[3];
+          pe[3]=theerror;
+          myBot.forward(p*float(theerror)-d*(abs(pe[3]-pe[0])));
+```
+The video below shows my PID controller when it was tuned. 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/plTJmalr32Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+As you can see the robot slows down as it is approaching the wall and backs up to the appropriate distance with minimal oscillation. Below you can see a graph of the TOF sensor values over one PID run.
 <br>
-
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab6/front%20sensor.png" height=800 />
+<br>
