@@ -79,7 +79,7 @@ ble.start_notify(ble.uuid['RX_STRING'],updateValue)
 After I was able to log sensor data and send it over BLE, I started to implement the PID controller. Before implementing the controller, I came up with a way to adjust the P, I, and D coefficients without having to reprogram the Artemis every time. I accomplished this using the send three floats that I implemented a few labs back. I also had the car wait until it had received this command until it started its "run".
 ```
 Initialize P I and D to 0
-while(p==0) receive commands on the Artemis from Python
+while(p==0) receive commands on the Artemis from Python and update P, I, and D appropriately
 while (log is not full) run PID controller
 send over run information
 ```
