@@ -73,11 +73,16 @@ Then using <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git
 <br>
 ### 2. Kalman Filter Setup
 
-In this section I specify process noise and sensor noise. 
+In this section I specify process noise and sensor noise. Sensor noise as the name suggests depends on my sensor. In lab 2 I wrote some code that took a bunch of TOF sensor readings off of the front sensor and outputed the variance of the measurements. I saw that the variance seeemed to increase for longer measurements which seems to intuitevly make sense. I saw that at a distance much around 100 mm that variance seemed to be about 12 mm^2. Because my robot will often be taking measurements much farther out than this, I will make the sensor noise much bigger. I will assume sensor noise/ variance of 25 mm^2. This seems reasonable and is similar to the sensor noise value of 20 mm^2 assumed by Professor Peterson in lecture which is reassuring. 
+<br>
+In order to determine process noise, I tried to reason about how far off my Kalman filter would be everytime it was run and also how many times it would be run. By analyzing my TOF sensor data sent over after my run, it looks like I am updating a TOF value about 10 times per second. It also makes sense that I will only run my Kalman filter when I have a new measurement to feed into it, so I will run my Kalman filter about 10 times per second as well. In class Professor Peterson estimated that her robot position prediction would be off about by about 5 mm and her robot velocity prediction would be off by about 10 mm/s everytime through the Kalman filter which she was running about 50 times per second. These estimates seem somewhere in the realm of reasonable (i.e. they are not 100 m every second) and they seemed to provide her with solid results in class. Additionally, we are operating very similar robots in very similar conditions, so I figure that I should be able to use similar process noise values in my lab. However, as I mentioned she was assuming a sampling rate of 50 times per second where I am at 10 times per second so I am going to multiply her values for error everytime through the filter by 5. Thus everytime I sample my Kalman filter I am assuming my predicted position process noise is 25 mm and my predicted velocity process noise is 50 mm. 
 ```
 sig_u=np.array([[sigma_1**2,0],[0,sigma_2**2]]) //We assume uncorrelated noise, therefore a diagonal matrix works.
 sig_z=np.array([[sigma_4**2]])
 ```
+<br>
+
+
 My C matrix is a m by n matrix where n is the number of dimensions in my state space and m is the number of states I actually measure. There are 2 dimensions in my state space x and v and there I actually only measure x so my C matrix looks like
 ```
 C=np.array([[-1,0]])
