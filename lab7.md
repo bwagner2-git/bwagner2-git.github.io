@@ -48,3 +48,11 @@
 </div>
 
 ## Lab 7
+
+# 1.
+In lab 6, I drove one of my motors at a PWM value of 65/255 and the other at a PWM value of 55/255. Because of this I drove the car at the wall with the crash pad using the same PWM values (without PID) and recorded the run so that I could analyze the step response. The way I designed my bot, I am easily able to change the timing of the run. I played around with this time and found a run length that would get it up approximately to full speed for a given PWM value and would stop right after that so that it did not hit the wall too fast.
+<br>
+My data is recorded in entries and is sent over to my computer. However, my TOF code is non-blocking and the IMU runs much faster than the TOF sensors, thus I multiple entries often contain the same TOF sensor reading. Becuase of this, I filtered out data log entries with repeat front TOF sensor readings. 
+<br>
+I eventually came up with the following data.
+
