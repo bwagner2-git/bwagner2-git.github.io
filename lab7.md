@@ -87,3 +87,6 @@ My C matrix is a m by n matrix where n is the number of dimensions in my state s
 ```
 C=np.array([[-1,0]])
 ```
+
+### Sanity Check Kalman Filter
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%206.10.01%20PM.png" height=800 />
