@@ -56,8 +56,10 @@ My data is recorded in entries and is sent over to my computer. However, my TOF 
 <br>
 I eventually came up with the following data.
 #### Motor Step Response
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/motorInput.png" height=800 />
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/motorInput.png" />
 #### TOF Sensor Readings
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/TOF%20step.png" height=800 />
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/TOF%20step.png" />
 #### Calculated Speed
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/speed%20step%20response%2050%20and%2065.png" height=800 />
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/speed%20step%20response%2050%20and%2065.png" />
+<br>
+To generate the speed graph, I looked at successive TOF sensor readings, found the distance between them, and then divided by the time between the readings.
