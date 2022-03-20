@@ -83,7 +83,7 @@ sig_z=np.array([[25]]) ### measurement noise (variance of sensor)
 <br>
 
 
-My C matrix is a m by n matrix where n is the number of dimensions in my state space and m is the number of states I actually measure. There are 2 dimensions in my state space x and v and there I actually only measure x so my C matrix looks like
+My C matrix is a m by n matrix where n is the number of dimensions in my state space and m is the number of states I actually measure. There are 2 dimensions in my state space x and v and I actually only measure x so my C matrix looks like
 ```
 C=np.array([[-1,0]])
 ```
