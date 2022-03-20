@@ -77,8 +77,8 @@ In this section I specify process noise and sensor noise. Sensor noise as the na
 <br>
 In order to determine process noise, I tried to reason about how far off my Kalman filter would be everytime it was run and also how many times it would be run. By analyzing my TOF sensor data sent over after my run, it looks like I am updating a TOF value about 10 times per second. It also makes sense that I will only run my Kalman filter when I have a new measurement to feed into it, so I will run my Kalman filter about 10 times per second as well. In class Professor Peterson estimated that her robot position prediction would be off about by about 5 mm and her robot velocity prediction would be off by about 10 mm/s everytime through the Kalman filter which she was running about 50 times per second. These estimates seem somewhere in the realm of reasonable (i.e. they are not 100 m every second) and they seemed to provide her with solid results in class. Additionally, we are operating very similar robots in very similar conditions, so I figure that I should be able to use similar process noise values in my lab. However, as I mentioned she was assuming a sampling rate of 50 times per second where I am at 10 times per second so I am going to multiply her values for error everytime through the filter by 5. Thus everytime I sample my Kalman filter I am assuming my predicted position process noise is 25 mm and my predicted velocity process noise is 50 mm. 
 ```
-sig_u=np.array([[25,0],[0,50]]) ### process noise
-sig_z=np.array([[25]]) ### measurement noise
+sig_u=np.array([[25,0],[0,50]]) ### process noise (assumed process noise every time I sample the Kalman filter)
+sig_z=np.array([[25]]) ### measurement noise (variance of sensor)
 ```
 <br>
 
