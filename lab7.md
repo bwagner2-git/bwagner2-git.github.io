@@ -73,12 +73,12 @@ Then using <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git
 <br>
 ### 2. Kalman Filter Setup
 
-In this section 
+In this section I specify process noise and sensor noise. 
 ```
 sig_u=np.array([[sigma_1**2,0],[0,sigma_2**2]]) //We assume uncorrelated noise, therefore a diagonal matrix works.
 sig_z=np.array([[sigma_4**2]])
 ```
-My C matric is a m by n matrix where n is the number of dimensions in my state space and m is the number of states I actually measure. There are 2 dimensions in my state space x and v and there I actually only measure x so my C matrix looks like
+My C matrix is a m by n matrix where n is the number of dimensions in my state space and m is the number of states I actually measure. There are 2 dimensions in my state space x and v and there I actually only measure x so my C matrix looks like
 ```
 C=np.array([[-1,0]])
 ```
