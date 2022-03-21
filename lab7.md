@@ -69,7 +69,9 @@ By looking at the speed graph I can see that it looks like my robot gets up to a
 Using this information allowed me to compute my A and B matrices. 
 Using d=u/v where I am using 1 as u to represent the unity step response, and v is velocity, I can see that steady state drag, d, is 1/1000mm/s or d=.001
 <br>
-Then using <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%204.05.41%20PM.png" /> to calculate m, and the 90 percent rise time of 2.3 seconds, I get m=.0009988773
+Then using the equation in the image shown below and the 90 percent rise time of 2.3 seconds to calculate m,, I get m=.0009988773 
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%204.05.41%20PM.png" /> 
 <br>
 ### 2. Kalman Filter Setup
 
