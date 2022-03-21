@@ -106,3 +106,7 @@ As you can see the Kalman Filter appears to be working as it follows the TOF sen
 In addition to the graph of the TOF sensor readings, one might find the graph of the motor output interesting as well and thus it is shown below.
 <br> 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.34.42%20PM.png" height=800 />
+
+<br>
+These graphs are alittle bit strange because there are some points where it is not a function. I suspect that this is due to a small error in my filtering out log entries without updated TOF sensor values. However, the overall shape of the graph makes a lot of sense and this slight error is of minimal concern.
+
