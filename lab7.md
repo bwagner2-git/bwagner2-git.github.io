@@ -102,3 +102,7 @@ In order to sanity check my Kalman filter I used Python. I created numpy arrays 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.24.26%20PM.png" height=800 />
 <br>
 As you can see the Kalman Filter appears to be working as it follows the TOF sensor fairly closely. This gave me confidence to move it over to the robot.
+<br> 
+In addition to the graph of the TOF sensor readings, one might find the graph of the motor output interesting as well and thus it is shown below.
+<br> 
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.34.42%20PM.png" height=800 />
