@@ -89,4 +89,14 @@ C=np.array([[-1,0]])
 ```
 
 ### Sanity Check Kalman Filter
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%206.10.01%20PM.png" height=800 />
+In order to sanity check my Kalman filter I used Python. I created numpy arrays for my A, B, and C matrices filling in the values that I discussed above. I then referenced the provided code and in class tutorial to create a Kalman filter function. Loading in my data from lab 6 I then compared the actual TOF sensor readings with the output of my Kalman filter and compared the results. The screenshots below show the important pieces of my Python code. As is evident in the code the red line is the Kalman Filter and the Blue line is the TOF sensor.
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.23.29%20PM.png" height=800 />
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.24.03%20PM.png" />
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.24.18%20PM.png" height=800 />
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.24.26%20PM.png" height=800 />
+<br>
+As you can see the Kalman Filter appears to be working as it follows the TOF sensor fairly closely. This gave me confidence to move it over to the robot.
