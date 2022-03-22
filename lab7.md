@@ -90,7 +90,7 @@ My C matrix is a m by n matrix where n is the number of dimensions in my state s
 C=np.array([[-1,0]])
 ```
 
-### Sanity Check Kalman Filter
+### 3. Sanity Check Kalman Filter
 In order to sanity check my Kalman filter I used Python. I created numpy arrays for my A, B, and C matrices filling in the values that I discussed above. I then referenced the provided code and in class tutorial to create a Kalman filter function. Loading in my data from lab 6 I then compared the actual TOF sensor readings with the output of my Kalman filter and compared the results. The screenshots below show the important pieces of my Python code. As is evident in the code the red line is the Kalman Filter and the Blue line is the TOF sensor.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/Screen%20Shot%202022-03-20%20at%208.23.29%20PM.png" height=800 />
@@ -110,3 +110,20 @@ In addition to the graph of the TOF sensor readings, one might find the graph of
 <br>
 These graphs are alittle bit strange because there are some points where it is not a function. I suspect that this is due to a small error in my filtering out log entries without updated TOF sensor values. However, the overall shape of the graph makes a lot of sense and this slight error is of minimal concern.
 
+### 4. Kalman Filter on the robot
+
+```
+/// only run kalman filter if there is new sensor data to run it on (kfReady) and ignore the zeroes the TOF sensors spit out at the beginning
+ if(kfReady==1 && myBot.front!=0){
+            kf(sig,myBot.front);//run kalman filter which updates "state" matrix
+          }
+          theerror=-1*state(0,0)-300;  /// calculate the error based on kalman filter output
+          
+          // keep a history for the derivative term
+          pe[0]=pe[1];
+          pe[1]=pe[2];
+          pe[2]=pe[3];
+          pe[3]=-1*state(0,0);
+          
+          myBot.forward(p*float(theerror)+float(d*(pe[3]-pe[0]))); //drive the bot based on this information
+```
