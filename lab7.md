@@ -112,6 +112,8 @@ These graphs are alittle bit strange because there are some points where it is n
 
 ### 4. Kalman Filter on the robot
 
+
+The robot then takes TOF readings, feeds them through the kalman filter (KF), and feeds the KF output into the PID controller. 
 ```
 /// only run kalman filter if there is new sensor data to run it on (kfReady) and ignore the zeroes the TOF sensors spit out at the beginning
  if(kfReady==1 && myBot.front!=0){
@@ -123,7 +125,7 @@ These graphs are alittle bit strange because there are some points where it is n
           pe[0]=pe[1];
           pe[1]=pe[2];
           pe[2]=pe[3];
-          pe[3]=-1*state(0,0);
+          pe[3]=-1*state(0,0);  ///by not using "theerror" here you protect against changes in the setpoint while achieving a very similar effect
           
           myBot.forward(p*float(theerror)+float(d*(pe[3]-pe[0]))); //drive the bot based on this information
 ```
