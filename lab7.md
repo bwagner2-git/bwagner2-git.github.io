@@ -112,8 +112,55 @@ These graphs are alittle bit strange because there are some points where it is n
 
 ### 4. Kalman Filter on the robot
 
+I then took the kalman filter (KF) Python code and implemented it on my robot. This "translation" is shown below.
 
-The robot then takes TOF readings, feeds them through the kalman filter (KF), and feeds the KF output into the PID controller. 
+```
+Matrix<2,1> state = {0,0};
+Matrix<1> u = 0.0;
+float drag=.001;
+float m=.0009988773;
+Matrix<2,2> A = {0,1,
+                 0,-1*drag/m};
+Matrix<2,1> B = {0,1/m};
+
+Matrix<1,2> C = {-1,0};
+
+Matrix<1> sig_z=10.0; ///lower to trust sensor values more
+Matrix<2,2> sig_u = {15,0,
+                     0,35};  ////lower these and the sig z to make kalman filter more aggressive ie lag less
+                     
+Matrix<2,2> sig = {25,0,
+                   0,25};
+///delta_t computed on previous data
+Matrix<2,2> Ad = {1,.132,
+                  0,.86785164};
+Matrix<2,1> Bd = {0,132.148};
+
+//values to alter
+Matrix<2,1> xn;
+Matrix<2,2> sign;
+
+void kf(Matrix<2,2> sigma, Matrix<1> frontSensorValue){
+  Matrix<2,1> xp=Ad*state+Bd*u;
+  Matrix<2,2> sigp=Ad*sigma*~Ad + sig_u;
+  Matrix<1> ym=frontSensorValue-C*xp;
+  Matrix<1> sigm=C*sigp*~C+sig_z;
+  Invert(sigm);
+  Matrix<2,1> k_gain=sigp*~C*sigm;
+  xn=xp+k_gain*ym;
+  Matrix<2,2> I={1,0,
+                 0,1};
+  sign=I-k_gain*C*sigp;
+  sig=sign;
+  state=xn;
+  kfReady=0;  ///reset this back to 0 indicating kalman filter has been run on most recent data
+}
+```
+I added in the kfReady variable to help me keep track of whether or not the KF has been run on the most recent data or not. When new data is read from the TOF sensor by the bot, it sets kfReady to 1 indicating that the KF needs to be run on those readings. Once the KF runs, it will set it back to 0 indicating it has seen the most recent TOF sensor data. In lab 8 I will likely use this kfReady to run the prediction step every time through loop and only run the update step of the KF when there is new data.
+
+<br>
+
+The robot then takes TOF readings, feeds them through the kalman filter (KF), and feeds the KF output into the PID controller. The jist of this code is shown below.
 ```
 /// only run kalman filter if there is new sensor data to run it on (kfReady) and ignore the zeroes the TOF sensors spit out at the beginning
  if(kfReady==1 && myBot.front!=0){
