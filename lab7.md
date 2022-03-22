@@ -156,6 +156,9 @@ void kf(Matrix<2,2> sigma, Matrix<1> frontSensorValue){
   kfReady=0;  ///reset this back to 0 indicating kalman filter has been run on most recent data
 }
 ```
+<br>
+You can see in this code that I made my sigma u and sigma z values smaller. I made the sigma z value smaller, because my robot kept crashing into the wall and I thought that it needed to trust the sensor values more. I then lowered the other values to make the KF slightly more aggressive and thus slightly more responsive. I found that these values worked well as shown in the videos at the bottom.
+<br>
 I added in the kfReady variable to help me keep track of whether or not the KF has been run on the most recent data or not. When new data is read from the TOF sensor by the bot, it sets kfReady to 1 indicating that the KF needs to be run on those readings. Once the KF runs, it will set it back to 0 indicating it has seen the most recent TOF sensor data. In lab 8 I will likely use this kfReady to run the prediction step every time through loop and only run the update step of the KF when there is new data.
 
 <br>
