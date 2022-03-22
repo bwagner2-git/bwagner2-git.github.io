@@ -183,3 +183,12 @@ The robot then takes TOF readings, feeds them through the kalman filter (KF), an
 I also experimented with tuning my PID controller and got some promising results which are shown in the two videos below. In the first video I have a lower D term and thus my robot approaches the wall faster, but it overshoots. In the second video, I run the robot with an increased D term and it approaches the wall more slowly, but does not overshoot. I am hoping that this improvement will serve me well in the future and help me protect my bot in lab 8.
 
 INSERT VIDEOS HERE
+
+
+<br>
+Below you can see the TOF readings for one of the faster runs (D term is smaller). As you can see there is a greater slope in the data but more oscillation.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/faster.png" height=800 />
+
+<br>
+Below you can see the TOF readings for one of the slower runs (D term is larger). As you can see there is a more gradual slope, but minimal overshoot and oscillation.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/slower.png" height=800 />
