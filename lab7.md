@@ -178,6 +178,14 @@ The robot then takes TOF readings, feeds them through the kalman filter (KF), an
           pe[3]=-1*state(0,0);  ///by not using "theerror" here you protect against changes in the setpoint while achieving a very similar effect
           
           myBot.forward(p*float(theerror)+float(d*(pe[3]-pe[0]))); //drive the bot based on this information
+          
+          if (p*float(theerror)+float(d*(pe[3]-pe[0]))>1){ ///update u
+              u=1;
+            } else if((p*float(theerror)+float(d*(pe[3]-pe[0]))<-1){
+              u=-1;
+            } else{
+              u=p*float(theerror)+float(d*(pe[3]-pe[0]));
+            }
 ```
 <br>
 I also experimented with further tuning my PID controller and got some promising results which are shown in the two videos below. In the first video I have a lower D term and thus my robot approaches the wall faster, but it overshoots. In the second video, I run the robot with an increased D term and it approaches the wall more slowly, but does not overshoot. I am hoping that this improvement will serve me well in the future and help me protect my bot in lab 8.
