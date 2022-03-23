@@ -165,6 +165,6 @@ INSERT GOOD FLIP HERE
 The bot flips and quickly travels back past the starting line. However, when it flips, it does so at a slight angle which is my only complaint with the performance of my solution. I could have tried to find a different proportion at which to drive the motors during the flip in order to accomplish a more even flip. The final proportion at which I used was to drive the right motor at a PWM of 245/255 and the left motor at a PWM of 255/255. Again, adjusting these values might help the bot flip more evenly.
 <br>
 
-talk about battery cleaning wheels
+In addition to tuning, Anya (who was in the lab with me when I was testing) and I found some additional ways in which we could help our robots flip. We found that it helped to clean the robots wheels as well as the sticky mat which accumulate dust quite quickly. Additionally, we found that it was important to replace the battery pretty frequently to ensure maximum velocities needed for the car to flip.
 
 
