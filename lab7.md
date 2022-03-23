@@ -202,3 +202,11 @@ Below you can see the TOF readings for one of the faster runs (D term is smaller
 <br>
 Below you can see the TOF readings for one of the slower runs (D term is larger). As you can see there is a more gradual slope, but minimal overshoot and oscillation.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab7/slower.png" height=800 />
+
+
+<br>
+At the end of this lab I was thinking about how I might get the robot to resist high changes in velocity only when it is near the wall. I came up with the solution of doing something to the the effect of 
+```
+myBot.forward(p*float(theerror)+((A/myBot.front)**2)float(d*(pe[3]-pe[0])));
+```
+In this way when the bot approaches the wall myBot.front, the front sensor reading, will be much smaller making the term in front of the d coefficient much larger, causing the d term to affect the robot much more at distances closer to the wall and less when further away. This would hopefully let the robot experience smooth and powerful acceleration at the beginning of the run while still slowing it down when it gets close to the wall at high speeds. I did not have time to really test this, but it might be something I revisit later in the semester.
