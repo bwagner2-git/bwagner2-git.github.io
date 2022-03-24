@@ -149,7 +149,9 @@ B=np.array([[0],[1/m]])
 Ad=np.eye(2)+delta_t*A
 Bd=delta_t*B
 ```
-If you look in the KF code above on the Artemis, you can see that Ad and Bd have been updated accordinly. 
+If you look in the KF code above on the Artemis, you can see that Ad and Bd have been updated accordingly. 
+<br>
+Despite driving at a significantly different max speed I figured that I did not need to adjust my non-descritized A and B matrices. I thought that since d was the step reponse divided by the velocity and becuase the velocity scales with the step response, d would be approximately equal for a higher PWM value/top speed. Additionally, m is calculated as d times the 90% rise time  divided by ln(.1). I figure that the 90% rise time will be similar for step inputs because the car will accelerate faster, but will also need to increase its speed more to reach its' "top speed" as this grows with a higher PWM value as well. Because of this I did not update the d and m values when going to a higher speed and thus did not need new non-descritized A and B matrices. Additionally a "u" term of 1 still represented top speed regardless of what that speed was. My implementation ultimately worked well so this seemed to be reasonable. Perhaps these assumptions would have affected me more had I set my sigma values to place more trust in my model.
 <br>
 Once I had this working, it was really about tuning the robot. There were 4 parameters that I needed to tune, run length, speed towards the wall, reverse speed, and distance at which the bot reverses.
 <br>
