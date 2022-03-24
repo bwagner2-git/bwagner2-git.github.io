@@ -108,7 +108,7 @@ The other way in which I sped up my kf sampling rate, was that I removed any cod
 At this point I was able to update my state variable extremely quickly. Again this is important becuase I am using my state variable to determine when I need to flip. I then began updating my code to perform a flip. I wrote code that drove the car in one direction until the state(0,0), the predicted position of the car, was sufficiently small, and then I drove it back in the other direction. I started slow which is shown in the video below.
 
 <br>
-INSERT SLOW VIDEO HERE
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hgMg41M8wns" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 
 My main loop that I used to accomplish this is shown below.
@@ -158,7 +158,7 @@ In my code, my bot runs until it fills up its log and then it stops. Becuase I w
 When adjusting the speed at which the bot approached the wall and drove away from the wall, I started slow and worked my way up. However, I soon learned that in order to get the car to flip, I would need to drive towards the wall very quickly and then reverse at full speed when I hit the mat. At this point it mostly became about tuning the distance at which the car started reversing. If you started it too soon, by the time the car got onto the mat, it would be going too slow to flip. If you started it too late, the car would likely overshoot the mat and hit the wall. I discovered the I needed to start reversing about 1100 mm away from the wall. This yielded good results and I was able to successfully and quickly complete my flip and return past the starting line as the video shows.
 <br>
 
-INSERT GOOD FLIP HERE
+<iframe width="560" height="315" src="https://www.youtube.com/embed/vyl1McF2pP0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
 
