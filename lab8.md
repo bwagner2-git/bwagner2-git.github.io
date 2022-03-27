@@ -170,3 +170,35 @@ The bot flips and quickly travels back past the starting line. However, when it 
 In addition to tuning, Anya (who was in the lab with me when I was testing) and I found some additional ways in which we could help our robots flip. We found that it helped to clean the robots wheels as well as the sticky mat which accumulate dust quite quickly. Additionally, we found that it was important to replace the battery pretty frequently to ensure maximum velocities needed for the car to flip.
 
 
+### Open Loop 720
+```
+void setup() {
+  analogWrite(3,255); //// go straigth
+  analogWrite(16,255);
+  delay(1000);
+  analogWrite(1,0); 
+  analogWrite(3,255);
+
+  analogWrite(14,100); //turn a bit
+  analogWrite(16,0);
+  delay(500);
+  analogWrite(14,0);
+  analogWrite(16,80); //turn back the other way initiating spin out
+  delay(1000);
+  
+  analogWrite(1,0);
+  analogWrite(3,255); ///drive forward
+
+  analogWrite(14,0);
+  analogWrite(16,255);
+  delay(3000);
+  analogWrite(1,0); //stop
+  analogWrite(3,0);
+
+  analogWrite(14,0);
+  analogWrite(16,0);
+}
+
+```
+
+
