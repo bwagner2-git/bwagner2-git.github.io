@@ -171,34 +171,42 @@ In addition to tuning, Anya (who was in the lab with me when I was testing) and 
 
 
 ### Open Loop 720
+For my stunt I performed what I term a 720 spin out. Essentially the car goes forward drifts one way and then turns sharply the other way causing it to spin out. I hold the spin out for 2 loops around and then drive the car forward out of the spin out back in roughly the original direction. Below is the commented control sequence I used to accomplish this as well as 3 videos showing the stunt and demonstrating its repeatability.
 ```
-void setup() {
-  analogWrite(3,255); //// go straigth
-  analogWrite(16,255);
-  delay(1000);
-  analogWrite(1,0); 
-  analogWrite(3,255);
+analogWrite(3,255); //// go straight
+analogWrite(16,255);
+delay(1000);
+analogWrite(1,0); 
+analogWrite(3,255);
 
-  analogWrite(14,100); //turn a bit
-  analogWrite(16,0);
-  delay(500);
-  analogWrite(14,0);
-  analogWrite(16,80); //turn back the other way initiating spin out
-  delay(1000);
-  
-  analogWrite(1,0);
-  analogWrite(3,255); ///drive forward
+analogWrite(14,100); //turn a bit
+analogWrite(16,0);
+delay(500);
+analogWrite(14,0);
+analogWrite(16,80); //turn back the other way initiating spin out
+delay(1000);
 
-  analogWrite(14,0);
-  analogWrite(16,255);
-  delay(3000);
-  analogWrite(1,0); //stop
-  analogWrite(3,0);
+analogWrite(1,0);
+analogWrite(3,255); ///drive forward
 
-  analogWrite(14,0);
-  analogWrite(16,0);
-}
+analogWrite(14,0);
+analogWrite(16,255);
+delay(3000);
+analogWrite(1,0); //stop
+analogWrite(3,0);
+
+analogWrite(14,0);
+analogWrite(16,0);
 
 ```
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ye_w6WW_XPY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ucsuMRklAwc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/MeWHI9wt7yo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+### Bloopers
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ain-9TI9_0g" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
