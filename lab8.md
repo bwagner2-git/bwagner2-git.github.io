@@ -181,7 +181,7 @@ Below are the requested graphs of the data taken from a run with a successful fl
 In the end the Kalman Filter helped me account for slow TOF sensor readings and update my state much more quickly via the prediction step allowing me to flip at the right time and successfully perform the stunt!
 
 ### Open Loop 720
-For my stunt I performed what I term a 720 spin out. Essentially the car goes forward drifts one way and then turns sharply the other way causing it to spin out. I hold the spin out for 2 loops around and then drive the car forward out of the spin out back in roughly the original direction. Below is the commented control sequence I used to accomplish this as well as 3 videos showing the stunt and demonstrating its repeatability.
+For my stunt I performed what I term a 720 spin-out. Essentially the car goes forward drifts one way and then turns sharply the other way causing it to spin out. I hold the spin-out for 2 loops around and then drive the car forward back in roughly the original direction. Below is the commented control sequence I used to accomplish this as well as 3 videos showing the stunt and demonstrating its repeatability.
 ```
 analogWrite(3,255); //// go straight
 analogWrite(16,255);
