@@ -61,3 +61,15 @@ In effect this led to the car staying still for a bit while it "accumulated enou
 <br>
 INSERT VIDEOS HERE
 <br>
+
+After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" in addition to the main log that I have been using throughout the class. The modified handler version is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries.
+```
+def updateValue(uuid,value):
+    global log
+    global turnLog
+    received=value.decode('utf-8').split(',')
+    if len(received)==3:
+        turnLog.append(received)
+    else:
+        log.append(received)
+```
