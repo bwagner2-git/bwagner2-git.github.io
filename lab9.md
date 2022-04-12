@@ -73,3 +73,6 @@ def updateValue(uuid,value):
     else:
         log.append(received)
 ```
+
+<br>
+talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
