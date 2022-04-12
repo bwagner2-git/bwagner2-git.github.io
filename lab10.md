@@ -57,10 +57,11 @@ As the code shows below the duration of a velocity command is 4 seconds for both
   A close look at the true ground truth of the robot (the green plot in the video below) over time seems to suggest that it consistently executes the same shape. Over many many runs a visible difference might occur. Additionally if you sped the robot up and reduces the asynio sleep times drastically, then I think that you would begin to see it not follow the same path every time. This is because the simulation seems to be running on a different process than the Python script. When the Python script sleeps, it may not sleep for exactly the same amount of time every time a sleep is called especially if this sleep is a much smaller number. Thus the Python script may set the velocity in the simulation at irregular times causing the shape the robot follows to vary slightly from time to time.
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xJTUtsG4OWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ <br>
+#### Code for Square Maneuver
   
-#### Code for square maneuver
-  ```
-  import math
+```
+import math
 cmdr.reset_plotter()
 cmdr.reset_sim()
 import time
@@ -108,10 +109,11 @@ while cmdr.sim_is_running() and cmdr.plotter_is_running():
         pose, gt_pose = cmdr.get_pose()
         cmdr.plot_odom(pose[0], pose[1])
         cmdr.plot_gt(gt_pose[0], gt_pose[1])
-  ```
+```
 <br>
 <br>
 ### Obstacle Avoidance
+<br>
 <li> By how much should the virtual robot turn when it is close to an obstacle?
 <li> At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?
 <li> How close can the virtual robot get to an obstacle without colliding?
