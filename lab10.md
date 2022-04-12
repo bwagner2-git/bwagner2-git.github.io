@@ -51,8 +51,9 @@
 ### Open-Loop Square
 Make your robot follow a set of velocity commands to execute a “square” loop anywhere in the map.
 Plot and analyze the ground truth and odometry of the robot.
-What is the duration of a velocity command?
-Does the robot always execute the exact same shape?
+<li> What is the duration of a velocity command?
+As the 
+<li> Does the robot always execute the exact same shape?
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xJTUtsG4OWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
