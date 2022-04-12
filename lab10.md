@@ -109,13 +109,34 @@ while cmdr.sim_is_running() and cmdr.plotter_is_running():
 
 <br>
 ### Obstacle Avoidance
+My virtual object avoidance robot is shown in a video below.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/eFcNkHTbkGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+The heart of the code I used to accomplish this is below.
+```
+while True:
+      cmdr.set_vel(.1,0)
+      while True:
+          if cmdr.get_sensor()[0]>.3:
+              cmdr.set_vel(.1,0)
+          else:
+              cmdr.set_vel(0,math.pi/8)
+              await asyncio.sleep(4)
+          pose, gt_pose = cmdr.get_pose()
+          
+          await asyncio.sleep(.001)
+```
 <br>
 <ul>
-<li> By how much should the virtual robot turn when it is close to an obstacle?
+<li> By how much should the virtual robot turn when it is close to an obstacle? <br>
+  I found that the obstacle avoidance works well when you instruct the robot to rotate in 90 degree intervals. If told it to rotate in really small intervals, it would often collide with the wall because it would turn until the TOF beam went past and edge and would drive forward. Becuase the TOF beam does not account in anyway for the width of the robot, the side of the robot, would then clip the corner.
 <li> At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?
+  <br>
+  I made the robot go fairly slow at a speed of only .1m/s. This seemed to work very well from the standpoint of avoiding collisions. Speeding up the robot increased the number of collisions 
 <li> How close can the virtual robot get to an obstacle without colliding?
 <li> Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?
   </ul>
 <br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eFcNkHTbkGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WjG37AZl46k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
