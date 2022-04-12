@@ -56,7 +56,7 @@ error=desiredAngularVelocity-measuredAngularVelocity;
 turnRate+=I*error; //adjust the turnrate
 turnCar(turnRate); //adjust the pwm according to the turnrate
 ```
-In effect this led to the car staying still for a bit while it "accumulated enough PWM" to begin moving, but once it began moving, it moved very slowly and fairly smoothly which was th goal as it allowed me to take a lot of distance measurements over the course of one rotation. This is shown in the videos below.
+In effect this led to the car staying still for a bit while it "accumulated enough PWM" to begin moving, but once it began moving, it moved very slowly and fairly smoothly which was th goal as it allowed me to take a lot of distance measurements over the course of one rotation. I did not want to have a ton of measurements where the car was just standing still because it was still building up enough power to start turning, so I implemented a check to only take a measurement when the measured PWM was a certain percentage of the desired PWM. The result of my implementation is shown in the videos below.
 
 <br>
 INSERT VIDEOS HERE
