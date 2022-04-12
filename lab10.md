@@ -59,15 +59,8 @@ As the code shows below the duration of a velocity command is 4 seconds for both
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xJTUtsG4OWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
  <br>
 #### Code for Square Maneuver
-  
-```
-import math
-cmdr.reset_plotter()
-cmdr.reset_sim()
-import time
-time.sleep(10)
 
-# Loop for pose
+```
 while cmdr.sim_is_running() and cmdr.plotter_is_running():
     pose, gt_pose = cmdr.get_pose()
     cmdr.plot_odom(pose[0], pose[1])
@@ -110,7 +103,7 @@ while cmdr.sim_is_running() and cmdr.plotter_is_running():
         cmdr.plot_odom(pose[0], pose[1])
         cmdr.plot_gt(gt_pose[0], gt_pose[1])
 ```
-<br>
+
 <br>
 ### Obstacle Avoidance
 <br>
