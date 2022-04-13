@@ -112,6 +112,8 @@ while cmdr.sim_is_running() and cmdr.plotter_is_running():
 My virtual object avoidance robot is shown in a video below.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eFcNkHTbkGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 The heart of the code I used to accomplish this is below.
+
+<br>
 ```
 while True:
       cmdr.set_vel(.1,0)
@@ -125,6 +127,8 @@ while True:
           
           await asyncio.sleep(.001)
 ```
+
+
 <br>
 <ul>
 <li> By how much should the virtual robot turn when it is close to an obstacle? <br>
