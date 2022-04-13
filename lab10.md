@@ -140,6 +140,8 @@ while True:
    It is not always apparent that the robot has run into the wall. It weems like it can 
 <li> Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?
   </ul>
+
+
 <br>
 
 
