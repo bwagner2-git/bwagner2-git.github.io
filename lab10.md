@@ -111,9 +111,9 @@ while cmdr.sim_is_running() and cmdr.plotter_is_running():
 ### Obstacle Avoidance
 My virtual object avoidance robot is shown in a video below.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/eFcNkHTbkGc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
 The heart of the code I used to accomplish this is below.
 
-<br>
 ```
 while True:
       cmdr.set_vel(.1,0)
@@ -129,7 +129,7 @@ while True:
 ```
 
 
-<br>
+
 <ul>
 <li> By how much should the virtual robot turn when it is close to an obstacle? <br>
   I found that the obstacle avoidance works well when you instruct the robot to rotate in 90 degree intervals. If told it to rotate in really small intervals, it would often collide with the wall because it would turn until the TOF beam went past and edge and would drive forward. Becuase the TOF beam does not account in anyway for the width of the robot, the side of the robot, would then clip the corner.
