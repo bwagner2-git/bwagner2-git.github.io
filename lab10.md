@@ -139,6 +139,7 @@ By how much should the virtual robot turn when it is close to an obstacle?
 <br>
   I found that the obstacle avoidance works well when you instruct the robot to rotate in 90 degree intervals. If told it to rotate in really small intervals, it would often collide with the wall because it would turn until the TOF beam went past and edge and would drive forward. Becuase the TOF beam does not account in anyway for the width of the robot, the side of the robot, would then clip the corner.
  <br>
+ <br>
 At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?
 <br>
 I made the robot go fairly slow at a speed of only .1m/s. This seemed to work very well from the standpoint of avoiding collisions. I was able to make the robot go much faster. I increaesd the rate at which it turned and decreased the duration of the turn by the inverse of the increase. I also made the robot go much faster translationally and increased the distance from the wall at which it turned by about a factor of 3. This is shown in the video below. In the simulation this was easy, but because of the dynamics of the robot, in real life speeding up obstacle avoidance would be much more challenging. 
