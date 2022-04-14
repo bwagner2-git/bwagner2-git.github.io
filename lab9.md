@@ -152,6 +152,7 @@ This map is decent. There ae some spots where it could definitely be improved. T
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/tilted%20sensor.png" height=400/>
 <br>
 In addition there will always be some noise in the sensors and my robot did not turn perfectly around the point that it was rotating on as you saw in the videos above.
-
-talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
-MAKE THE DIFFERENT SETS IN THE MAP DIFFERENT COLORS
+<br>
+Below is the line based version of the map that I dreq based on the plot based version.
+<br>
+<img src="" height=400/>
