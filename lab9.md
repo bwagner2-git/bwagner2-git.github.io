@@ -138,6 +138,8 @@ plt.title("Translated Cartesian Position 0,3")
 plt.plot(xcorrected1,ycorrected1)
 
 ```
+<br>
+These easy switch from one reference frame to another was made possible by the fact that I started my robot pointing towards 0 degrees (in the positive x direction) before every scan. Thus no rotational transformation was required only translational.
 
 talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
 MAKE THE DIFFERENT SETS IN THE MAP DIFFERENT COLORS
