@@ -158,6 +158,7 @@ Below is the line based version of the map that I generated based on my plot.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/real%20line%20map.png" height=400/>
 <br> 
 The code below shows the points I used to genrate this map. I am putting this here for reference and for ease of access when I need it in the next lab.
+<br>
 ```
 # line based map
 start=[]
@@ -213,4 +214,5 @@ plt.plot(xcorrected1,ycorrected1,linestyle="",marker=".",color='r')
 plt.plot(xcorrected2,ycorrected2,linestyle="",marker=".",color='g')
 plt.plot(xcorrected3,ycorrected3,linestyle="",marker=".",color='b')
 plt.plot(xcorrected4,ycorrected4,linestyle="",marker=".",color='c')
+
 ```
