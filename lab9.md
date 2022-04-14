@@ -50,7 +50,7 @@
 ## Lab 9
 
 ### Scanning the Room
-To begin this lab I developed and implemented a method to rotate the car as slowly as I could around a point. I chose to do this using orientation control and what essentially ended up being just an integral controller. To do the control, I first passed in a target angular speed at which I wanted my car to rotate at over bluetooth. I then looked at the gyroscope value of the car and compared it to the target angular velocity. I subtracted the two and added this to a term which I then scaled and set as the PWM for the motor. This is summarized below.
+To begin this lab I developed and implemented a method to rotate the car as slowly as I could around a point. I chose to do this using angular speed control and what essentially ended up being just an integral controller. To do the control, I first passed in a target angular speed at which I wanted my car to rotate at over bluetooth. I then looked at the gyroscope value of the car and compared it to the target angular velocity. I subtracted the two and added this to a term which I then scaled and set as the PWM for the motor. This is summarized below.
 ```
 error=desiredAngularVelocity-measuredAngularVelocity;
 turnRate+=I*error; //adjust the turnrate
@@ -62,7 +62,7 @@ In effect this led to the car staying still for a bit while it "accumulated enou
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0JP0QGb3b7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
 
-After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" in addition to the main log that I have been using throughout the class. The modified handler version is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries.
+After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer for the turn. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle after the run had finished. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" in addition to the main log (on the Python side) that I have been using throughout the class. The modified handler function is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries.
 ```
 def updateValue(uuid,value):
     global log
@@ -76,3 +76,4 @@ def updateValue(uuid,value):
 
 <br>
 talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
+MAKE THE DIFFERENT SETS IN THE MAP DIFFERENT COLORS
