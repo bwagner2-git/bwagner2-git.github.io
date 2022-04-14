@@ -155,4 +155,4 @@ In addition there will always be some noise in the sensors and my robot did not 
 <br>
 Below is the line based version of the map that I dreq based on the plot based version.
 <br>
-<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/line%20map.png" height=400/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/real%20line%20map.png" height=400/>
