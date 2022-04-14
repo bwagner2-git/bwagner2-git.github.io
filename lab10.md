@@ -150,11 +150,16 @@ I made the robot go fairly slow at a speed of only .1m/s. This seemed to work ve
 <br>
 How close can the virtual robot get to an obstacle without colliding?
 <br>
-It is not always apparent that the robot has run into the wall.
+It is not always apparent that the robot has run into the wall so this is hard to do visually. In order to figure this problem out, I wrote the following python code which produced the result shown in the image.
+
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab10/Screen%20Shot%202022-04-14%20at%204.54.31%20PM.png" height=500/>
 <br>
-
+I ran the simulator and recorded sensor measurements as the robot sat still over 15 seconds. I found that the standard deviation of the sensor measurements is about .034 meters. In order to rarely crash into the wall, it would be a good idea to stay 3 standard deviations away from the wall or .102 meters away. If you do this, then you can be pretty sure you will not crash into the wall and if you want to be even more sure, you can start to turn away from the wall at an even farther distance away. This does not necessarily accound for the width of the car which you may need to take into accound when turning so you do no clip the side of the robot on the wall. Additionally, I am assuming that the standard deviation of the sensor values are about the same at any distance in the simulator. In the real robot, it might be the case that the standard deviation of the sensor is greater at greater distances.
+<br>
+<br>
 Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?
-
+<br>
+The obstacle avoidance code seems to be pretty reliable when I simulate it. However, it does seem to eventually settle into a repeating pattern that does aviod obstacles but is less interesting. To avoid entering into this repeating pattern, I could add in some randomness into the amount that it turns when it gets to a wall. 
 
 
 <br>
