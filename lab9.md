@@ -153,6 +153,64 @@ This map is decent. There ae some spots where it could definitely be improved. T
 <br>
 In addition there will always be some noise in the sensors and my robot did not turn perfectly around the point that it was rotating on as you saw in the videos above.
 <br>
-Below is the line based version of the map that I dreq based on the plot based version.
+Below is the line based version of the map that I generated based on my plot.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/real%20line%20map.png" height=400/>
+<br> 
+The code below shows the points I used to genrate this map. I am putting this here for reference and for ease of access when I need it in the next lab.
+```
+# line based map
+start=[]
+end=[]
+boxstart=[]
+boxend=[]
+start.append((-750,1450))
+end.append((-750,50))
+start.append((-750,50))
+end.append((-1600,50))
+start.append((-1600,50))
+end.append((-1600,-1250))
+start.append((-1600,-1250))
+end.append((-500,-1250))
+start.append((-500,-1250))
+end.append((-500,-1000))
+start.append((-500,-1000))
+end.append((500,-1000))
+start.append((500,-1000))
+end.append((500,-1250))
+start.append((500,-1250))
+end.append((2000,-1250))
+start.append((2000,-1250))
+end.append((2000,1450))
+start.append((2000,1450))
+end.append((-750,1450))
+
+boxstart.append((1400,600))
+boxend.append((500,600))
+boxstart.append((500,600))
+boxend.append((500,-400))
+boxstart.append((500,-400))
+boxend.append((1400,-400))
+boxstart.append((1400,-400))
+boxend.append((1400,600))
+
+x=[]
+y=[]
+boxx=[]
+boxy=[]
+end.append(start[1])
+boxend.append(boxstart[1])
+for i in end:
+    x.append(i[0])
+    y.append(i[1])
+for i in boxend:
+    boxx.append(i[0])
+    boxy.append(i[1])
+plt.title('line map')
+plt.plot(x,y)
+plt.plot(boxx,boxy)
+plt.plot(xcorrected1,ycorrected1,linestyle="",marker=".",color='r')
+plt.plot(xcorrected2,ycorrected2,linestyle="",marker=".",color='g')
+plt.plot(xcorrected3,ycorrected3,linestyle="",marker=".",color='b')
+plt.plot(xcorrected4,ycorrected4,linestyle="",marker=".",color='c')
+```
