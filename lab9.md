@@ -143,6 +143,9 @@ plt.plot(xcorrected1,ycorrected1)
 ```
 <br>
 These easy switch from one reference frame to another was made possible by the fact that I started my robot pointing towards 0 degrees (in the positive x direction) before every scan. Thus no rotational transformation was required only translational.
+<br>
+I then plotted the transformed maps all on the same plot and this was the final result of my mapping.
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/coloredmap.png" height=400/>
 
 talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
 MAKE THE DIFFERENT SETS IN THE MAP DIFFERENT COLORS
