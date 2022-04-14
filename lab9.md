@@ -66,7 +66,7 @@ In effect this led to the car staying still for a bit while it "accumulated enou
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/0JP0QGb3b7w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 <br>
-Below is a graph that shows the PWM over time for a given run. You can see that the PWM ramps and the oscilates around a target as expected. 
+Below is a graph that shows the PWM over time for a given run. You can see that the PWM ramps and then oscilates around a target as expected. 
 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/pwmpltovertime.png" height=400/>
 <br>
