@@ -146,6 +146,12 @@ These easy switch from one reference frame to another was made possible by the f
 <br>
 I then plotted the transformed maps all on the same plot and this was the final result of my mapping.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/coloredmap.png" height=400/>
+<br>
+This map is decent. There ae some spots where it could definitely be improved. The I smashed my robot's TOF sensor in the last lab, and when I remounted a new one, it seemed like it was pointing up slightly. This was not a problem for measuring the walls that were close, but I believe it might have overshot some of the walls that were farther away, as they were not very high, causing some erroneous measurements. This is shown in the image below.
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/tilted%20sensor.png" height=400/>
+<br>
+In addition there will always be some noise in the sensors and my robot did not turn perfectly around the point that it was rotating on as you saw in the videos above.
 
 talk about how my sensor was pointing up slightly so this could have lead to some of the garbage values at a distance that I see in my map
 MAKE THE DIFFERENT SETS IN THE MAP DIFFERENT COLORS
