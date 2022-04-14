@@ -58,7 +58,7 @@ As the code shows below the duration of a velocity command is 4 seconds for both
 Does the robot always execute the exact same shape?
 <br>
 
-  A close look at the true ground truth of the robot (the green plot in the video below) over time seems to suggest that it consistently executes the same shape. Over many many runs a visible difference might occur. Additionally if you sped the robot up and reduces the asynio sleep times drastically, then I think that you would begin to see it not follow the same path every time. This is because the simulation seems to be running on a different process than the Python script. When the Python script sleeps, it may not sleep for exactly the same amount of time every time a sleep is called especially if this sleep is a much smaller number. Thus the Python script may set the velocity in the simulation at irregular times causing the shape the robot follows to vary slightly from time to time.
+  A close look at the true ground truth of the robot (the green plot in the video below) over time seems to suggest that it consistently executes the same shape. Over many many runs a visible difference might occur. Additionally if you sped the robot up and reduce the asynio sleep times drastically, then I think that you would begin to see it not follow the same path every time. This is because the simulation seems to be running on a different process than the Python script. When the Python script sleeps, it may not sleep for exactly the same amount of time every time a sleep is called especially if this sleep is a much smaller number. Thus the Python script may set the velocity in the simulation at irregular times causing the shape the robot follows to vary slightly from time to time.
   
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/xJTUtsG4OWQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -136,8 +136,7 @@ while True:
 <br>
 By how much should the virtual robot turn when it is close to an obstacle?
 <br>
-<br>
-  I found that the obstacle avoidance works well when you instruct the robot to rotate in 90 degree intervals. If told it to rotate in really small intervals, it would often collide with the wall because it would turn until the TOF beam went past and edge and would drive forward. Becuase the TOF beam does not account in anyway for the width of the robot, the side of the robot, would then clip the corner.
+  I found that the obstacle avoidance works well when you instruct the robot to rotate in 90 degree intervals. I found that if I told it to rotate in really small intervals, it would often collide with the wall because it would turn until the TOF beam went past and edge and would drive forward. Becuase the TOF beam does not account in anyway for the width of the robot, the side of the robot, would then clip the corner.
  <br>
  <br>
 At what linear speed should the virtual robot move to minimize/prevent collisions? Can you make it go faster?
@@ -154,12 +153,12 @@ It is not always apparent that the robot has run into the wall so this is hard t
 
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab10/Screen%20Shot%202022-04-14%20at%204.54.31%20PM.png" height=500/>
 <br>
-I ran the simulator and recorded sensor measurements as the robot sat still over 15 seconds. I found that the standard deviation of the sensor measurements is about .034 meters. In order to rarely crash into the wall, it would be a good idea to stay 3 standard deviations away from the wall or .102 meters away. If you do this, then you can be pretty sure you will not crash into the wall and if you want to be even more sure, you can start to turn away from the wall at an even farther distance away. This does not necessarily accound for the width of the car which you may need to take into accound when turning so you do no clip the side of the robot on the wall. Additionally, I am assuming that the standard deviation of the sensor values are about the same at any distance in the simulator. In the real robot, it might be the case that the standard deviation of the sensor is greater at greater distances.
+I ran the simulator and recorded sensor measurements as the robot sat still over 15 seconds. I found that the standard deviation of the sensor measurements is about .034 meters. In order to rarely crash into the wall, it would be a good idea to stay 3 standard deviations away from the wall or .102 meters away. If you do this, then you can be pretty sure you will not crash into the wall and if you want to be even more sure, you can start to turn away from the wall at an even farther distance away. This does not necessarily account for the width of the car which you may need to take into account when turning so you do no clip the side of the robot on the wall. Additionally, I am assuming that the standard deviation of the sensor values are about the same at any distance in the simulator. In the real robot, it might be the case that the standard deviation of the sensor is greater at greater distances.
 <br>
 <br>
 Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?
 <br>
-The obstacle avoidance code seems to be pretty reliable when I simulate it. However, it does seem to eventually settle into a repeating pattern that does aviod obstacles but is less interesting. To avoid entering into this repeating pattern, I could add in some randomness into the amount that it turns when it gets to a wall.  I thinkg that the 90 degree turns works well for maps with right edges. It could be the case that it there were smooth edges, then the robot would rotate past exits out of whatever crevise it was trapped in and would get stuck. 
+The obstacle avoidance code seems to be pretty reliable when I simulate it. However, it does seem to eventually settle into a repeating pattern that does aviod obstacles but is less interesting. To avoid entering into this repeating pattern, I could add some randomness into the amount that it turns when it gets to a wall.  I think that the 90 degree turns work well for maps with right edges. It could be the case that it there were smooth edges, then the robot would rotate past exits out of whatever crevise it was trapped in and would get stuck. 
 
 
 <br>
