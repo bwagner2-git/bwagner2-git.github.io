@@ -101,7 +101,7 @@ As you can see the robot slows down as it is approaching the wall and backs up t
 <br>
 You often see consecutive repeats in TOF sensor data because I used non-blocking code. My IMU is running much faster than the TOF sensors and in order to sample the IMU as fast as possible I create multiple data entries in the time that it takes the TOF sensor to update its reading from one value to the next. Based on this TOF data, I set the PWM value and feed that to bot.forward(). The forward method takes a float argument. Any argument greater than 1 or less than -1 will cause the bot to try and drive full speed in one direction. "Full speed" is capped to a PWM of around 65 in my example. Any value between 1 and -1 will be multiplied by 65, cast to an int and set as the PWM value. Here is how the value that is fed to PWM changes over a run in my example. 
 <br>
-<img src=https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab6/pwm.png"" height=800/>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab6/pwm.png" height=800/>
 <br>
 Here is another example of PID executing on my bot, though not quite as well tuned as the previous video.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/Aw_2fhKwGZE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
