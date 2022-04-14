@@ -79,11 +79,11 @@ Over multiple turns the the TOF readings seem to be failry precise, but the erro
 <br>
 Given the slowest speed you are able to achieve, how much does the orientation of the robot change during a single measurement? If you were spinning in the middle of a 4x4m2 empty, square room, what kind of accuracy can you expect?
 <br>
-By looking at the number of ToF readings I had and the total time of my run, it seems that I was getting about 6 ToF readings per second from my front ToF sensor which seems reasonable. As previously mentioned, I was turning about 20 degrees per second which means that each one of my ToF readings spanned about 20/6 or 3.33 degrees on average. From observing my robot, it seems that the center drifted by no more than about 6 inches during a given turn. 6 inches is 152.4 mm which I believe is more significant than the typical amount of error solely from sensor noise and innacuracies assuming your sensors are measuring what they are intened to. Assume the max error you would achieve is 200mm off because I feel that it is better to overestimate your error than to underestimate it in most cases. If you were rotating in 4mx4m room, this would mean that you would have a percent error of 5% which i got by getting .2m divided by 4m times 100 percent.
+By looking at the number of ToF readings I had and the total time of my run, it seems that I was getting about 6 ToF readings per second from my front ToF sensor which seems reasonable. As previously mentioned, I was turning about 20 degrees per second which means that each one of my ToF readings spanned about 20/6 or 3.33 degrees on average. From observing my robot, it seems that the center drifted by no more than about 6 inches during a given turn. 6 inches is 152.4 mm which I believe is more significant than the typical amount of error solely from sensor noise and innacuracies assuming your sensors are measuring what they are intened to. I will assume the max error you would achieve is 200 mm off because I feel that it is better to overestimate your error than to underestimate it in most cases. If you were rotating in 4mx4m room, this would mean that you would have a percent error of 5% which I got by getting .2m divided by 4m times 100 percent.
 <br>
 
 
-After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer for the turn. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle after the run had finished. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" (on the Python side) in addition to the main log that I have been using throughout the class. The modified handler function is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries. Also now is a good time to mention that I only ended up using the front TOF readings because I the side sensor readings seemed to be faulty. I think that it might have been picking up on the wheel of my robot which I could fix by adjusting the positioning of the sensor, but by the time I realized this, it was not worth the effor to go back and redo the scans as I got a pretty solid map with just the front TOF as you will see below.
+After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer for the turn. In addition to my original log, I also sent over a log that consisted of packets with the angle as well as the front TOF reading and the side TOF reading at that angle at some point during the turn. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" (on the Python side) in addition to the main log that I have been using throughout the class. The modified handler function is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries. Also now is a good time to mention that I only ended up using the front TOF readings because the side sensor readings seemed to be faulty. I think that it might have been picking up on the wheel of my robot which I could fix by adjusting the positioning of the sensor, but by the time I realized this, it was not worth the effort to go back and redo the scans as I got a pretty solid map with just the front TOF as you will see below.
 ```
 def updateValue(uuid,value):
     global log
@@ -96,7 +96,7 @@ def updateValue(uuid,value):
 ```
 
 <br>
-Once I had this information on my laptop, I was able to plot it in polar format and then convert that to cartesian format for each point. I then tranlated these plots to the reference frame of the actual origin on the map so that they could be combined later on. These plots are shown below.
+Once I had this information on my laptop, I was able to plot it in polar format and then convert that to cartesian format for each point. I then translated these plots to the reference frame of the actual origin on the map so that they could be combined later on. These plots are shown below.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/-3%2C-2.png" height=400/>
 <br>
@@ -117,7 +117,7 @@ Once I had this information on my laptop, I was able to plot it in polar format 
 <br>
 
 
-In order to translate the plots from the reference of where the turn occured to the reference of the origin, all I had to do was add the x value of the point where it was taken to all of the x values of the points in that rotation and the y value of the point where it was taken to all of the x values of the points in that rotation. For example if I was translating the point 3,5 to the origin, I just added 3 to all of the x values and 5 to all of the y values in the cartesian map gerneated at that point. An example of the code I used to do this for one of the points is below. I also negated the theta value because I took the absolute value of it on the robot before passing it over and I was turning clockwise.
+In order to translate the plots from the reference of where the turn occured to the reference frame of the origin, all I had to do was add the x value of the point where it was taken to all of the x values of the points in that rotation and the y value of the point where it was taken to all of the y values of the points in that rotation. For example if I was translating the scan from point 3,5 to the origin, I just added 3 to all of the x values and 5 to all of the y values in the cartesian map gerneated at that point. An example of the code I used to do this for one of the points is below. I also negated the theta value because I took the absolute value of it on the robot before passing it over and I was turning clockwise.
 ```
 info=dataFromTurn
 theta=[]
@@ -158,12 +158,12 @@ plt.plot(xcorrected1,ycorrected1)
 
 ```
 <br>
-These easy switch from one reference frame to another was made possible by the fact that I started my robot pointing towards 0 degrees (in the positive x direction) before every scan. Thus no rotational transformation was required only translational.
+The easy switch from one reference frame to another was made possible by the fact that I started my robot pointing towards 0 degrees (in the positive x direction) before every scan. Thus no rotational transformation was required only translational and I avoided needing transformation matrices as they only complicated things.
 <br>
 I then plotted the transformed maps all on the same plot and this was the final result of my mapping.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/coloredmap.png" height=400/>
 <br>
-This map is decent. There ae some spots where it could definitely be improved. The I smashed my robot's TOF sensor in the last lab, and when I remounted a new one, it seemed like it was pointing up slightly. This was not a problem for measuring the walls that were close, but I believe it might have overshot some of the walls that were farther away, as they were not very high, causing some erroneous measurements. This is shown in the image below.
+This map is decent. There ae some spots where it could definitely be improved. The I smashed my robot's TOF sensor in the last lab, and when I remounted a new one, it seemed like it was pointing up slightly. This was not a problem for measuring the walls that were close, but I believe it might have overshot some of the walls that were farther away, as the walls were not very high, causing some erroneous measurements. This is shown in the image below.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/tilted%20sensor.png" height=400/>
 <br>
