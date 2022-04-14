@@ -82,21 +82,24 @@ def updateValue(uuid,value):
 <br>
 Once I had this information on my laptop, I was able to plot it in polar format and then convert that to cartesian format for each point. I then tranlated these plots to the reference frame of the actual origin on the map so that they could be combined later on. These plots are shown below.
 <br>
-<img src="" height=800/>
-
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/-3%2C-2.png" height=400/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/-3%2C-2c.png" height=800/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/0%2C3.png" height=400/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/0%2C3c.png" height=800/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/5%2C-3.png" height=400/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/5%2C-3c.png" height=800/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/5%2C3.png" height=400/>
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/5%2C3c.png" height=800/>
+<br>
 <br>
 
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
-
-<br>
 
 In order to translate the plots from the reference of where the turn occured to the reference of the origin, all I had to do was add the x value of the point where it was taken to all of the x values of the points in that rotation and the y value of the point where it was taken to all of the x values of the points in that rotation. For example if I was translating the point 3,5 to the origin, I just added 3 to all of the x values and 5 to all of the y values in the cartesian map gerneated at that point. An example of the code I used to do this for one of the points is below. I also negated the theta value because I took the absolute value of it on the robot before passing it over and I was turning clockwise.
 ```
