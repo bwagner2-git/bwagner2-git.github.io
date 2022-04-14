@@ -159,7 +159,7 @@ I ran the simulator and recorded sensor measurements as the robot sat still over
 <br>
 Does your obstacle avoidance code always work? If not, what can you do to minimize crashes or (may be) prevent them completely?
 <br>
-The obstacle avoidance code seems to be pretty reliable when I simulate it. However, it does seem to eventually settle into a repeating pattern that does aviod obstacles but is less interesting. To avoid entering into this repeating pattern, I could add in some randomness into the amount that it turns when it gets to a wall. 
+The obstacle avoidance code seems to be pretty reliable when I simulate it. However, it does seem to eventually settle into a repeating pattern that does aviod obstacles but is less interesting. To avoid entering into this repeating pattern, I could add in some randomness into the amount that it turns when it gets to a wall.  I thinkg that the 90 degree turns works well for maps with right edges. It could be the case that it there were smooth edges, then the robot would rotate past exits out of whatever crevise it was trapped in and would get stuck. 
 
 
 <br>
