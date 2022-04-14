@@ -70,9 +70,10 @@ In effect this led to the car staying still for a bit while it "accumulated enou
 Over multiple turns the the TOF readings seem to be failry precise, but the error in the integrated angle grows more and more. The plot below shows the data over 2 consecutive turns. You see that the shap of the curves is very similar, but that the corresponding point from one turn to another appears to be rotated by a significant amount which supports my statement above.
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/2%20turns%20precision.png" height=400/>
 
-<br
+<br>
 
-After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer for the turn. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle after the run had finished. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" (on the Python side) in addition to the main log that I have been using throughout the class. The modified handler function is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries.
+
+After I had the robot turning slowly, I desgined a debugger that allowed me to send information over from the car to my computer for the turn. In addition to my original log, I also sent over a log that consisted of packets with the angle, the front TOF reading, and the side TOF reading at that angle after the run had finished. I cacluated the angle by integrating the gyrocsope value over my loop. I adjusted my handler function so that it also filled out this "turn log" (on the Python side) in addition to the main log that I have been using throughout the class. The modified handler function is shown below. This code exploits the fact that the turn log entries are a differnt length than the main log entries. Also now is a good time to mention that I only ended up using the front TOF readings because I the side sensor readings seemed to be faulty. I think that it might have been picking up on the wheel of my robot which I could fix by adjusting the positioning of the sensor, but by the time I realized this, it was not worth the effor to go back and redo the scans as I got a pretty solid map with just the front TOF as you will see below.
 ```
 def updateValue(uuid,value):
     global log
