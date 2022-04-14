@@ -159,7 +159,7 @@ This map is decent. There ae some spots where it could definitely be improved. T
 <br>
 In addition there will always be some noise in the sensors and my robot did not turn perfectly around the point that it was rotating on as you saw in the videos above.
 <br>
-Below is the line based version of the map that I generated based on my plot.
+Below is the line based version of the map that I generated based on my plot. I corrected for some of the erroneous readings by using the parts of the plot map that seemed very accurate in tandem with my previous experience with the layout of the arena.
 <br>
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab9/real%20line%20map.png" height=400/>
 <br> 
