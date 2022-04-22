@@ -140,7 +140,7 @@ def update_step():
                 loc.bel[xc,yc,ac]=loc.bel_bar[xc,yc,ac]
                 for measurement in range(18):
                     #normalize(loc.gaussian(thsenosorvaluesIgot,thesensorvaluesishouldhaveseen,loc.sensor_sigma) times belief bar)
-                    loc.bel[xc,yc,ac]*=loc.gaussian(loc.obs_range_data[measurement][0],mapper.get_views(xc,yc,ac)[measurement],loc.sensor_sigma)
+                    loc.bel[xc,yc,ac]*=loc.gaussian(loc.obs_range_data[measurement][0],mapper.get_views(xc,yc,ac [measurement],loc.sensor_sigma) ###multiply believed probability that I am in pose [xc,yc,ac] by the probability that I would see the sensor values I saw given I am at pose [xc,yc,ac] to update my believe probability that I am at pose [xc,yc,ac]
     loc.bel=loc.bel/np.sum(loc.bel)
 ```
 
