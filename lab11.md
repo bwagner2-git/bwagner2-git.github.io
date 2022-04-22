@@ -48,3 +48,33 @@
 </div>
 
 ## Lab 11
+In this report I will take you through my implementation of each of the steps of the Bayes filter and show you the associated code.
+<br>
+### Compute Control
+```
+def compute_control(cur_pose, prev_pose):
+    """ Given the current and previous odometry poses, this function extracts
+    the control information based on the odometry motion model.
+
+    Args:
+        cur_pose  ([Pose]): Current Pose
+        prev_pose ([Pose]): Previous Pose 
+
+    Returns:
+        [delta_rot_1]: Rotation 1  (degrees)
+        [delta_trans]: Translation (meters)
+        [delta_rot_2]: Rotation 2  (degrees)
+    """
+    delta_rot_1=np.degrees(np.arctan2(cur_pose[1]-prev_pose[1],cur_pose[0]-prev_pose[0]))-prev_pose[2]
+    delta_trans=np.sqrt((cur_pose[1]-prev_pose[1])**2+(cur_pose[0]-prev_pose[0])**2)
+    delta_rot_2=cur_pose[2]-prev_pose[2]-delta_rot_1
+
+    return mapper.normalize_angle(delta_rot_1), delta_trans, mapper.normalize_angle(delta_rot_2)
+```
+<br>
+The compute control function essentially just tells you the control sequence necessary to take the robot from one pose to another. Every transition from one pose to another has 3 associated actions, the first rotation, a translation, and a second rotation. The figure below from the slides in class does a nice job of illustrating this. 
+<br>
+<img src='https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab11/motion.png' height=400 />
+<br>
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/1sxVmoNviI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
