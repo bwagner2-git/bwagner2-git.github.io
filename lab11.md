@@ -55,11 +55,9 @@ In this report I will take you through my implementation of each of the steps of
 def compute_control(cur_pose, prev_pose):
     """ Given the current and previous odometry poses, this function extracts
     the control information based on the odometry motion model.
-
     Args:
         cur_pose  ([Pose]): Current Pose
         prev_pose ([Pose]): Previous Pose 
-
     Returns:
         [delta_rot_1]: Rotation 1  (degrees)
         [delta_trans]: Translation (meters)
@@ -76,33 +74,20 @@ The compute control function essentially just tells you the control sequence nec
 <br>
 <img src='https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab11/motion.png' height=400 />
 <br>
-The compute control takes in as arguments the robots current pose and the robots previous pose and returns the first rotation, the translation, and the second rotation that was used to take the robot from the previous pose to the current pose.
+The compute control takes in as arguments the robots current pose and the robots previous pose and returns the first rotation, the translation, and the second rotation that was used to take the robot from the previous pose to the current pose. Additionally, I normalize the angles which is important for making other steps of the Bayes filter work well when this function is used in the implementation of those steps.
 ### Odometry Motion Model
 ```
 def odom_motion_model(cur_pose, prev_pose, u):
     """ Odometry Motion Model
-
     Args:
         cur_pose  ([Pose]): Current Pose
         prev_pose ([Pose]): Previous Pose
         u=(rot1, trans, rot2) (float, float, float): A tuple with control data in the format 
                                                    format (rot1, trans, rot2) with units (degrees, meters, degrees)
-
-
     Returns:
         prob [float]: Probability p(x'|x, u)
     """
-    
-    ###you have the map and compute control tells you what control input gets you from one spot on the map to another ideally based on the map
-    ###^^^this is is the output of compute control function and is x
-    ###the mu is what you think actually happened based on your internal sensors
-    ###thus you are generating a gaussian with what you think happened being the average and seeing how likely it is that 
-    ###you care about the distance from mu to x and where x is on the gausian about where you think you are
-    ###thus you are finding the probability that you are where you think you are given where you were and some control input
-    delta_rot_1_hat, delta_trans_hat, delta_rot_2_hat=compute_control(cur_pose,prev_pose) ###look at lecture 18 
-    
-    # u is the non hat version from the slide with delta_rot_1 delta_rot_trans and delta_rot_2
-    p1=loc.gaussian(mapper.normalize_angle(delta_rot_1_hat-mapper.normalize_angle(u[0])),0,loc.odom_rot_sigma) #you are shifting the whole gaussian curve
+    p1=loc.gaussian(mapper.normalize_angle(delta_rot_1_hat-mapper.normalize_angle(u[0])),0,loc.odom_rot_sigma)
     p2=loc.gaussian(delta_trans_hat,u[1],loc.odom_trans_sigma)
     p3=loc.gaussian(mapper.normalize_angle(delta_rot_2_hat-mapper.normalize_angle(u[2])),0,loc.odom_rot_sigma)
     
@@ -113,6 +98,41 @@ def odom_motion_model(cur_pose, prev_pose, u):
 The odometry motion model basically says, given what you think you did and where you think you were, what is the probability you are at a given place now. You break down the problem into the three actions involved with going from one pose to another (rotation 1, translation, rotation 2). You generate a gaussian with what you think you did based on your odometry sensors as the mean. The sigma of this gaussian, which relates to how spread out it is, depends on your sensors and is given to us in the code as loc.odom_rot_sigma for rotation and loc.odom_trans_sigma for translation. You also pass an 'x' to the gaussian function and the function inputs x to the function it generates and returns the output of the generated gaussian function given that input. You use the previously described compute control function to generate the "x's" that you pass into the gaussian function. This essentially allows you to figure out step by step the probability that each one of the three actions did took you where you think it did. You then multiply all of these probabilities to figure out the probability that the total movement took you where you think it did.
 <br>
 Note in my code I often use x-mu as my 'x' input and 0 as the mu input to the gaussian which essentially just shifts the gaussian around 0 and has no effect on what I actually care about.
+
+### Prediction Step
+```
+def prediction_step(cur_odom, prev_odom):
+    """ Prediction step of the Bayes Filter.
+    Update the probabilities in loc.bel_bar based on loc.bel from the previous time step and the odometry motion model.
+    Args:
+        cur_odom  ([Pose]): Current Pose
+        prev_odom ([Pose]): Previous Pose
+    """
+    mu=compute_control(cur_odom,prev_odom)
+    loc.bel_bar=np.zeros((12,9,18))
+    for xp in range(mapper.MAX_CELLS_X):
+        for yp in range(mapper.MAX_CELLS_Y):
+            for ap in range(mapper.MAX_CELLS_A):
+                if loc.bel[xp,yp,ap]>0.0001: ###if the chance that I was in a state previously is sufficiently low ignore the calulations for that state 
+                    for xc in range(mapper.MAX_CELLS_X):
+                        for yc in range(mapper.MAX_CELLS_Y):
+                            for ac in range(mapper.MAX_CELLS_A):
+                                cur_pose_c=mapper.from_map(xc,yc,ac) ###convert to continuous space from discrete map space before passing into motion model
+                                prev_pose_c=mapper.from_map(xp,yp,ap)
+                                loc.bel_bar[xc,yc,ac]+=odom_motion_model(cur_pose_c,prev_pose_c,mu)*loc.bel[xp,yp,ap]
+    loc.bel_bar/=np.sum(loc.bel_bar) ### normalize
+```
+
+In the prediction step you go through every possible previous pose and every possible current pose. Because each state is defined by 3 states (x,y,angle) there are 6 nested for loops required to go through all of these states. Simply put, the prediction step says for every possible pose and every possible previous pose find the probabilty that I went from one pose to another pose and am in a given pose to begin with to find the probability that I am in any given state on the map now. In this you are updating the probabilities in loc.bel_bar (an array that represents the belief of the robot after the most recent prediction step) based on loc.bel (an array representing the belief of the robot after the most recent update step) from the previous time step and the odometry motion model. 
+<br>
+The comments in my code do a decent job of explaining the subtleties of the implementation but I will expound a bit on them here. xp, yp, and ap are x previous, y previous, and angle previous respectivly. Similary, xc, yc, and ac stand for x current, y current, and angle current respectively. Thus I am saying with my iterations, for each of the previous states, go through all of the potential current states. Note the if statement in between the 3 loops for the previous state and the 3 loops for the current state. This if statement says that if there was a really low probability that I was in a state previously, don't waste time doing the calculations to update bel_bar for the transitions involving these previous states because they will have little effect on the accuracy of bel_bar. This makes the code much more efficient and helps my simulation run much faster. In my code, the 'c' in cur_pose_c and prev_pose_c stands for continuous. The map is in discrete grid spaces and the from map function converts discrete pose information into continuous space so that it can be used by the odom_motion_model function. At the end I normalize (make all of the probabilties in bel_bar sum to 1) which is an important step in the Bayes filter.
+
+### Update Step
+
+
+
+### Debugging
+Talk about how I figured out that it was my update step that was the probelem.
 
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/1sxVmoNviI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
