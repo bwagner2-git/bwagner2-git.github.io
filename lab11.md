@@ -48,7 +48,7 @@
 </div>
 
 ## Lab 11
-In this report I will take you through my implementation of each of the steps of the Bayes filter and show you the associated code.
+In this report I will take you through my implementation of each of the steps of the Bayes filter and display the associated code.
 <br>
 ### Compute Control
 ```
