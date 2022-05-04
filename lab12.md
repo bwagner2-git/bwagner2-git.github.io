@@ -108,3 +108,8 @@ I did this for every point. The results at each point are shown below.
 
 #### 5,3
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%205%2C3.png" height=500/>
+
+<br>
+As the images demonstrate the robot was able to localize (figure out where it was) pretty well at every point except for (0,3). In every other case the robot either predicted it was in the proper gird cell or thought that it was one cell away from where it actually was. However, in the case of (0,3) it was way off. There are a number of reasons why I think this might be the case. First, I think that my TOF sensor was not mounted directly perpendicular to the floor. This was not a problem for walls that were close away, but when the walls were far away, I think this could cause the sensor to either see over the wall or to see the floor. A good part of the scan at point (0,3) was trying to measure walls that were relatiely far away. This could have cause some bad sensor readings and thrown off my loclalzation. Additionally, looking at the map, it seems that point (0,3) is not an extremely unique position. In other words the correct scan would still produce results similar to that proper scans at other positions on the map. 
+<br>
+Overall there was enough evidence to suggest that my basic robot localization was working. If I were going to alter my solution to try and get it to localize better at 
