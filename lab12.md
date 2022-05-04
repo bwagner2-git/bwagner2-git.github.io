@@ -75,4 +75,36 @@ if (angle-increment>=20){
 <br>
 In this code measurements holds the measurement information. As you can see every 20 degrees I set increment to angle and then keep integrating onto angle.
 <br>
-One down side of using the integral controller is that it sits for a while before it starts turning. When I integrate my angle I send the gyroscope value through an absolute value function meaning the angle always grows in the positive direction as it gets integrated. Because the robot sits for a while before turning while it integrates enough "juice" to start turning and the angle accumulates some error more quickly (due to sensor noise) than it would if I did not pass then gyro value through the absolute value function and there was some noise of opposite sign that would cancel itself out when integrating into the angle. 
+One down side of using the integral controller is that it sits for a while before it starts turning. When I integrate my angle I send the gyroscope value through an absolute value function meaning the angle always grows in the positive direction as it gets integrated. Because the robot sits for a while before turning while it integrates enough "juice" to start turning and the angle accumulates some error more quickly (due to sensor noise) than it would if I did not pass then gyro value through the absolute value function and there was some noise of opposite sign that would cancel itself out when integrating into the angle.  Nonetheless, my solution worked well enough and I was able to get 18 sensor readings spaced approximately 20 degrees apart over the course of my turn.
+<br>
+Once I had these readings, I was able to send them into Python, convert them into a numpy column array, and feed them to the Python localization code to get an idea of where the robot was based on the sensor readings from the real robot. Getting the sensor readings into the numpy column array was done in the perform_observation_loop function which is shown below.
+```
+ def perform_observation_loop(self, rot_vel=120):
+        global turnLog
+        m=[]
+        for i in turnLog:
+            m.append(i[1]/1000) ###convert to meters
+        m.reverse() #I turned clockwise
+        print(m)
+        measurements=np.array(m)[np.newaxis]
+        return measurements.T, np.zeros((1,1),dtype=np.int8)
+
+```
+<br>
+As the above code makes apparent, I receive the sensor readings into a global array called turnLog. Once the above function was implemented, and a few other small adjustments were made, I was localize with the sensor values from my robot. The video below shows the process. I send a command telling the robot to perform the turn, wait for it to finish, receive the sensor values, and do the localization.
+<br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bqzAiWIcolg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br>
+
+I did this for every point. The results at each point are shown below.
+#### -3,-2
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%20-3%2C-2%20.png" height=500/>
+
+#### 0,3
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%200%2C3.png" height=500/>
+
+#### 5,-3
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%205%2C-3.png" height=500/>
+
+#### 5,3
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%205%2C3.png" height=500/>
