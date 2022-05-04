@@ -48,3 +48,8 @@
 </div>
 
 ## Lab 12
+
+### Simulation
+I ran the simulator as instructed. The result is shown below.
+<br>
+<img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/Screen%20Shot%202022-05-04%20at%2012.03.45%20PM.png" height=800 />
