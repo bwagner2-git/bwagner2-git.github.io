@@ -103,7 +103,7 @@ I did this for every point. The results at each point are shown below.
 #### 0,3
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%200%2C3.png" height=500/>
 
-#### 5,-3
+#### 5,-3 (Perfect!)
 <img src="https://raw.githubusercontent.com/bwagner2-git/bwagner2-git.github.io/main/screenshots/lab12/lab%2012%20position%205%2C-3.png" height=500/>
 
 #### 5,3
