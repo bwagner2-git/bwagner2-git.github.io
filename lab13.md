@@ -99,17 +99,15 @@ Another problem we originally had was the robot consistently overshooting the de
 <br>
 Below is the results of our implementation.
 
-INSERT THE GOOD TWO VIDEOS HERE 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/uieqZwjLLs8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <br>
-Here is an example of the robot getting lost and finding its way back to the path.
-
-INSERT ROBOT FINDING ITS WAY BACK VIDEO
+<iframe width="560" height="315" src="https://www.youtube.com/embed/n2AMH12JBAw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### Why we chose to do it the way we did
 Ultimately, we might have been able to hit all of the points in this path more accurately by using more PID and hardcoding in a very specific sequence of instructions for the robot to follow. However, had we done it this way however, our robot would have been constrained to that specific path. If we wanted to change the path our robot took, we would have to figure out and hardcode in a new set of very specific instructions. Our solution on the other hand allowed us to send in a list of points, our robot would work with the computer to figure out a way to achieve that path. Thus switching up our robot’s path required minimal effort which would be beneficial in a lot of real world applications involving this technology! Additionally, our robot was more robust in the sense that if it got off path for whatever reason, it could often find its way back as the video above demonstrated. In order to demonstrate the power of our solution, we did the course backwards by simply reversing the original list of points!
 
-INSERT BACKWARDS VIDEO
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2VqoVV9AWJY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ### When its 1 AM and you robot finally works
 <iframe width="560" height="315" src="https://www.youtube.com/embed/aiY8pAgs5rU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -118,7 +116,6 @@ INSERT BACKWARDS VIDEO
 ### Thanks for a great semester!
 
 
-INSERT BACKWARDS VIDEO
 
 
 #### Relevant Code
